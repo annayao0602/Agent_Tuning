@@ -3,12 +3,11 @@ import { motion } from "motion/react";
 import MacroView from "@/imports/MacroViewV2/index";
 
 // ─── Right panel – Column Descriptions overlay ───────────────────────────────
-// MacroViewV2: AiSuggestionsV4Micro at canvas (1277, 68), 379×700
-// Column Descriptions panel slightly taller: (1276, 67), 380×747
-const RP_LEFT = 1276;
-const RP_TOP = 67;
-const RP_W = 380;
-const RP_H = 747;
+// Matches MacroViewV2 AiSuggestionsV4Micro exactly: left-[1277px] top-[68px] w-[379px] h-[700px]
+const RP_LEFT = 1277;
+const RP_TOP = 68;
+const RP_W = 379;
+const RP_H = 700;
 
 // Tab bar within panel: left=20, top=20; Custom tab w=152, gap=14, Column tab w=144
 const TAB_PANEL_Y = 20;
@@ -28,7 +27,7 @@ function ColumnDescriptionsPanel({ onClose }: { onClose: () => void }) {
       position: "absolute",
       left: RP_LEFT, top: RP_TOP, width: RP_W, height: RP_H,
       background: "white", borderRadius: 8,
-      boxShadow: "-1px 0px 12px 0px rgba(0,0,0,0.1)",
+      boxShadow: "-1px 0px 12px 0px rgba(0,0,0,0.15)",
       overflow: "hidden", zIndex: 10,
     }}>
       {/* Tab bar */}
@@ -55,8 +54,8 @@ function ColumnDescriptionsPanel({ onClose }: { onClose: () => void }) {
       {/* Separator under tab bar */}
       <div style={{ position: "absolute", top: 54, left: 0, right: 0, height: 1, background: "#ececec" }} />
 
-      {/* Scrollable content */}
-      <div style={{ position: "absolute", top: 55, left: 0, right: 0, bottom: 0, overflowY: "auto" }}>
+      {/* Static content */}
+      <div style={{ position: "absolute", top: 55, left: 0, right: 0, bottom: 0, overflow: "hidden" }}>
         {/* Section header */}
         <div
           onClick={() => setSectionOpen(v => !v)}
@@ -121,15 +120,22 @@ function ColumnDescriptionsPanel({ onClose }: { onClose: () => void }) {
         )}
       </div>
 
-      {/* Lightbulb badge — panel-relative at left=330, bottom portion */}
-      <div style={{ position: "absolute", left: 330, top: 699, width: 20, height: 20, overflow: "visible", zIndex: 2 }}>
-        <svg width="17" height="20" viewBox="0 0 16.9002 19.9982" fill="none">
-          <path d="M13.2034 9.19261C12.8648 10.229 12.208 11.1629 11.2024 11.994C10.5148 12.5687 10.1865 13.2357 10.1865 14.0464C10.1865 14.0669 10.1865 14.0874 10.1865 14.108H4.79908C4.79908 14.108 4.79908 14.0464 4.79908 14.0156C4.79908 13.2152 4.46045 12.5482 3.79344 12.0146C2.52099 11.0089 1.77189 9.69543 1.57692 8.1254C1.22802 5.32396 2.90067 2.73802 5.64054 1.84525C6.24598 1.65028 6.87194 1.54767 7.50816 1.54767C8.27779 1.54767 9.04741 1.70159 9.77599 1.98892L10.8329 1.59897L11.0895 0.911442C9.26291 -0.0736782 7.11822 -0.26865 5.1685 0.367574C1.72058 1.49636 -0.383064 4.75957 0.0581879 8.29985C0.304468 10.2803 1.23828 11.9325 2.84936 13.2049C3.14695 13.4409 3.28035 13.677 3.28035 13.9951C3.28035 14.7031 3.28035 14.816 3.28035 14.8981C3.28035 14.9802 3.28035 15.0212 3.28035 15.6575V15.8114C3.30088 18.1203 5.19929 19.9982 7.50816 19.9982C9.81704 19.9982 11.736 18.0997 11.736 15.7703C11.736 15.1239 11.736 15.011 11.736 14.9391C11.736 14.8571 11.736 14.8263 11.736 14.0259C11.736 13.6872 11.8591 13.4409 12.1875 13.1741C14.0346 11.6452 14.9684 9.72622 14.9889 7.56101L14.8145 8.0433C14.5374 8.79241 13.8807 9.17209 13.2137 9.19261H13.2034Z" fill="#0E6FF9" />
-        </svg>
-        {/* Orange notification dot */}
-        <div style={{ position: "absolute", top: -8, left: 11, width: 14, height: 14, borderRadius: "50%", background: "#EE5E32", display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <span style={{ fontFamily: sf, fontSize: 12, color: "white", lineHeight: "18px" }}>3</span>
-        </div>
+    </div>
+  );
+}
+
+// Lightbulb badge rendered at exact canvas coords matching MacroViewV2
+// Panel left=1277+330=1607, top=68+663=731
+function LightbulbBadge() {
+  const sf = "system-ui,-apple-system,sans-serif";
+  return (
+    <div style={{ position: "absolute", left: 1607, top: 731, width: 20, height: 20, overflow: "visible", zIndex: 20 }}>
+      <svg width="17" height="20" viewBox="0 0 16.9002 19.9982" fill="none">
+        <path d="M13.2034 9.19261C12.8648 10.229 12.208 11.1629 11.2024 11.994C10.5148 12.5687 10.1865 13.2357 10.1865 14.0464C10.1865 14.0669 10.1865 14.0874 10.1865 14.108H4.79908C4.79908 14.108 4.79908 14.0464 4.79908 14.0156C4.79908 13.2152 4.46045 12.5482 3.79344 12.0146C2.52099 11.0089 1.77189 9.69543 1.57692 8.1254C1.22802 5.32396 2.90067 2.73802 5.64054 1.84525C6.24598 1.65028 6.87194 1.54767 7.50816 1.54767C8.27779 1.54767 9.04741 1.70159 9.77599 1.98892L10.8329 1.59897L11.0895 0.911442C9.26291 -0.0736782 7.11822 -0.26865 5.1685 0.367574C1.72058 1.49636 -0.383064 4.75957 0.0581879 8.29985C0.304468 10.2803 1.23828 11.9325 2.84936 13.2049C3.14695 13.4409 3.28035 13.677 3.28035 13.9951C3.28035 14.7031 3.28035 14.816 3.28035 14.8981C3.28035 14.9802 3.28035 15.0212 3.28035 15.6575V15.8114C3.30088 18.1203 5.19929 19.9982 7.50816 19.9982C9.81704 19.9982 11.736 18.0997 11.736 15.7703C11.736 15.1239 11.736 15.011 11.736 14.9391C11.736 14.8571 11.736 14.8263 11.736 14.0259C11.736 13.6872 11.8591 13.4409 12.1875 13.1741C14.0346 11.6452 14.9684 9.72622 14.9889 7.56101L14.8145 8.0433C14.5374 8.79241 13.8807 9.17209 13.2137 9.19261H13.2034Z" fill="#0E6FF9" />
+      </svg>
+      {/* Orange notification dot */}
+      <div style={{ position: "absolute", top: -8, left: 11, width: 14, height: 14, borderRadius: "50%", background: "#EE5E32", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <span style={{ fontFamily: sf, fontSize: 12, color: "white", lineHeight: "18px" }}>3</span>
       </div>
     </div>
   );
@@ -356,7 +362,7 @@ function QuestionRow({
         }}>
           {question.text}
         </div>
-        <div style={{ position: "absolute", left: 952, top: "50%", transform: "translateY(-50%)" }}>
+        <div style={{ position: "absolute", left: 954, top: "50%", transform: "translateY(-50%)" }}>
           <StatusBadge status={question.status} />
         </div>
         <div
@@ -474,6 +480,9 @@ export default function App() {
         {rightTab === "column" && (
           <ColumnDescriptionsPanel onClose={() => setRightTab("custom")} />
         )}
+
+        {/* Lightbulb badge — only shown over Column Descriptions panel (Custom Instructions has its own built-in one) */}
+        {rightTab === "column" && <LightbulbBadge />}
 
         {/* Animated overlay — covers only the question-list area of the panel */}
         <div style={{
