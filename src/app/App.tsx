@@ -587,10 +587,10 @@ function UnifiedRightPanel({ tab, onTabChange, view }: { tab: "custom" | "column
       {/* Box 1 */}
       <div style={{ marginBottom: 18 }}>
         <p style={{ fontFamily: sf, fontSize: 14, color: "#29313b", lineHeight: "18px", margin: "0 0 6px" }}>Tell the bot about your business background, and the special requirements on the data.</p>
-        <div style={{ background: "#f2f3f5", borderRadius: 4, padding: "6px 12px", minHeight: 60, marginBottom: 4, position: "relative" }}>
-          <div style={{ position: "absolute", left: 7, top: 9, right: 7, height: 17, background: "rgba(206,245,195,0.4)" }} />
+        <div style={{ background: "#f2f3f5", borderRadius: 4, height: 188, marginBottom: 4, position: "relative", overflow: "hidden" }}>
+          <div style={{ position: "absolute", left: 7, top: 9, width: 324, height: 17, background: "rgba(206,245,195,0.4)" }} />
           <div style={{ position: "absolute", left: 7, top: 26, width: 183, height: 17, background: "rgba(206,245,195,0.4)" }} />
-          <p style={{ fontFamily: inter, fontSize: 14, color: "black", lineHeight: "18px", margin: 0, position: "relative" }}>
+          <p style={{ fontFamily: inter, fontSize: 14, color: "black", lineHeight: "18px", margin: 0, position: "absolute", left: 12, top: 6, width: 332 }}>
             A sale refers to an individual order which may contain multiple products.
           </p>
         </div>
@@ -599,13 +599,12 @@ function UnifiedRightPanel({ tab, onTabChange, view }: { tab: "custom" | "column
       {/* Box 2 */}
       <div style={{ marginBottom: 18 }}>
         <p style={{ fontFamily: sf, fontSize: 14, color: "#29313b", lineHeight: "18px", margin: "0 0 6px" }}>Specify the format of the responses that the bot should use.</p>
-        <div style={{ background: "#f2f3f5", borderRadius: 4, height: 80, marginBottom: 4 }} />
-        <p style={{ fontFamily: sf, fontSize: 12, color: "#727679", lineHeight: "16px", textAlign: "right", margin: 0 }}>0/500</p>
+        <div style={{ background: "rgba(242,243,245,0.43)", borderRadius: 4, height: 191, marginBottom: 4 }} />
       </div>
       {/* Box 3 — faded */}
       <div>
         <p style={{ fontFamily: sf, fontSize: 14, color: "rgba(41,49,59,0.67)", lineHeight: "18px", margin: "0 0 6px" }}>Specify the types of questions that should be rejected at the agent level.</p>
-        <div style={{ background: "linear-gradient(to bottom, rgba(242,243,245,0.42), rgba(242,243,245,0.13))", borderRadius: 4, height: 80 }} />
+        <div style={{ background: "linear-gradient(to bottom, rgba(242,243,245,0.42), rgba(242,243,245,0.13))", borderRadius: 4, height: 189 }} />
       </div>
     </div>
   );
@@ -736,6 +735,7 @@ export default function App() {
   const [expanded, setExpanded] = useState(false);
   const [rightTab, setRightTab] = useState<"custom" | "column">("custom");
   const [view, setView] = useState<"macro" | "micro">("macro");
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   useEffect(() => {
     const update = () => {
@@ -792,6 +792,55 @@ export default function App() {
                 onToggle={() => setExpanded((v) => !v)}
                 onInspect={() => setView("micro")}
               />
+            </div>
+          </>
+        )}
+
+        {/* Baseline Agent dropdown click zone — over DropdownInput at canvas (32,10,134×26) */}
+        <div
+          onClick={() => setDropdownOpen(v => !v)}
+          style={{ position: "absolute", left: 32, top: 10, width: 134, height: 26, cursor: "pointer", zIndex: 20 }}
+        />
+
+        {/* Dropdown overlay */}
+        {dropdownOpen && (
+          <>
+            {/* Backdrop to close on outside click */}
+            <div
+              onClick={() => setDropdownOpen(false)}
+              style={{ position: "absolute", inset: 0, zIndex: 19 }}
+            />
+            <div style={{
+              position: "absolute", left: 10.56, top: 43,
+              width: 155, background: "white",
+              borderRadius: 8, boxShadow: "0px 3px 5px rgba(24,24,37,0.2)",
+              padding: "10px 4px",
+              zIndex: 21, overflow: "hidden",
+            }}>
+              {[
+                { label: "Baseline Agent", dividerAfter: false },
+                { label: "Version 2 Agent", dividerAfter: true },
+                { label: "Compare Versions", dividerAfter: false },
+              ].map(({ label, dividerAfter }, i) => (
+                <div key={i}>
+                  <div
+                    onClick={() => setDropdownOpen(false)}
+                    style={{
+                      height: 34, paddingLeft: 9, display: "flex", alignItems: "center",
+                      cursor: "pointer", fontFamily: "system-ui,-apple-system,sans-serif",
+                      fontSize: 14, color: "#181825", letterSpacing: 0.28, lineHeight: "20px",
+                      borderRadius: 4,
+                    }}
+                    onMouseEnter={e => (e.currentTarget.style.background = "#f5f5f8")}
+                    onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
+                  >
+                    {label}
+                  </div>
+                  {dividerAfter && (
+                    <div style={{ height: 1, background: "#d9d9d9", margin: "0 0" }} />
+                  )}
+                </div>
+              ))}
             </div>
           </>
         )}
