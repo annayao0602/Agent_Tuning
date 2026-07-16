@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import MacroView from "@/imports/MacroViewV2/index";
+import MicroView from "@/imports/MicroView/index";
 
 // ─── Right panel – Column Descriptions overlay ───────────────────────────────
 // Matches MacroViewV2 AiSuggestionsV4Micro exactly: left-[1277px] top-[68px] w-[379px] h-[700px]
@@ -141,6 +142,109 @@ function LightbulbBadge() {
   );
 }
 
+// ─── Micro view – Column Descriptions right panel overlay ────────────────────
+// MicroView AiSuggestionsV4Micro: left-[1282px] top-[48px] w-[379px] h-[976px]
+const MICRO_RP_LEFT = 1282;
+const MICRO_RP_TOP = 48;
+const MICRO_RP_W = 379;
+const MICRO_RP_H = 976;
+
+function MicroColumnDescPanel({ onClose }: { onClose: () => void }) {
+  const sf = "system-ui,-apple-system,sans-serif";
+  const inter = "Inter,system-ui,sans-serif";
+  const [sectionOpen, setSectionOpen] = useState(true);
+
+  return (
+    <div style={{
+      position: "absolute",
+      left: MICRO_RP_LEFT, top: MICRO_RP_TOP,
+      width: MICRO_RP_W, height: MICRO_RP_H,
+      background: "white",
+      boxShadow: "-1px 0px 2px 0px rgba(0,0,0,0.1)",
+      overflow: "hidden", zIndex: 10,
+    }}>
+      {/* Tab bar */}
+      <div style={{ position: "absolute", top: 20, left: 20, display: "flex", gap: 14, alignItems: "flex-end", height: 34 }}>
+        <div onClick={onClose} style={{ cursor: "pointer", flexShrink: 0, paddingBottom: 10 }}>
+          <span style={{ fontFamily: inter, fontSize: 14, color: "#181825", lineHeight: "22px" }}>
+            Custom Instructions
+          </span>
+        </div>
+        <div style={{ flexShrink: 0, position: "relative", paddingBottom: 10 }}>
+          <span style={{ fontFamily: inter, fontSize: 14, fontWeight: 600, color: "#0e6ff9", lineHeight: "22px" }}>
+            Column Descriptions
+          </span>
+          <div style={{ position: "absolute", bottom: 0, left: 0, width: 152, height: 3, background: "#0e6ff9", borderRadius: "2px 2px 0 0" }} />
+        </div>
+      </div>
+
+      {/* Separator */}
+      <div style={{ position: "absolute", top: 54, left: 0, right: 0, height: 1, background: "#ececec" }} />
+
+      {/* Static content area */}
+      <div style={{ position: "absolute", top: 55, left: 0, right: 0, bottom: 160, overflow: "hidden" }}>
+        {/* Section header */}
+        <div
+          onClick={() => setSectionOpen(v => !v)}
+          style={{ display: "flex", alignItems: "center", gap: 6, padding: "12px 12px 8px 9px", cursor: "pointer" }}
+        >
+          <motion.div animate={{ rotate: sectionOpen ? 0 : -90 }} transition={{ duration: 0.2 }} style={{ display: "flex", transformOrigin: "50% 50%" }}>
+            <svg width="12" height="7" viewBox="0 0 11.3186 6.72747" fill="none">
+              <line stroke="black" transform="matrix(0.686144 0.727466 -0.686144 0.727466 0 0.727466)" x2="8.24781" y1="-0.5" y2="-0.5" />
+              <line stroke="black" transform="matrix(-0.686144 0.727466 0.686144 0.727466 11.3186 0.727466)" x2="8.24781" y1="-0.5" y2="-0.5" />
+            </svg>
+          </motion.div>
+          <span style={{ fontFamily: sf, fontSize: 14, color: "black", letterSpacing: 0.28, lineHeight: "20px" }}>
+            Retail Delivery Order Data
+          </span>
+        </div>
+
+        {sectionOpen && (
+          <div style={{ padding: "0 12px 0 25px" }}>
+            <p style={{ fontFamily: sf, fontSize: 14, color: "#2d2d2d", lineHeight: "20px", letterSpacing: 0.28, margin: "0 0 20px" }}>
+              This dataset serves as the primary transaction and fulfillment ledger for our retail delivery operations, capturing essential post-checkout logistics. It tracks unique product identifiers, transaction codes, shipping destinations, and precise carrier drop-off timestamps. An AI chatbot can leverage this structured data to instantly resolve customer support inquiries, verify shipping success, and provide geographic status updates.
+            </p>
+            <p style={{ fontFamily: sf, fontSize: 14, color: "#2d2d2d", lineHeight: "20px", letterSpacing: 0.28, margin: "0 0 6px" }}>Product ID</p>
+            <p style={{ fontFamily: sf, fontSize: 14, color: "#2d2d2d", lineHeight: "20px", letterSpacing: 0.28, margin: "0 0 20px" }}>
+              {`Also referred to as "item code" or "SKU." This is the unique alphanumeric string assigned to every item in our catalog. If a user asks "what did I buy?" or "can you look up this item?", cross-reference their query against this field.`}
+            </p>
+            <p style={{ fontFamily: sf, fontSize: 14, color: "#2d2d2d", lineHeight: "20px", letterSpacing: 0.28, margin: "0 0 6px" }}>Order Number</p>
+            <p style={{ fontFamily: sf, fontSize: 14, color: "#7b7b7b", lineHeight: "20px", letterSpacing: 0.28, margin: "0 0 20px" }}>
+              {`Also known as "invoice number" or "purchase ID." This is the primary key used to track a complete transaction from checkout to delivery. Use this field when a user asks about the status, return eligibility, or contents of a specific purchase.`}
+            </p>
+            <p style={{ fontFamily: sf, fontSize: 14, color: "rgba(45,45,45,0.23)", lineHeight: "20px", letterSpacing: 0.28, margin: "0 0 6px" }}>Location (City)</p>
+            <p style={{ fontFamily: sf, fontSize: 14, color: "rgba(45,45,45,0.23)", lineHeight: "20px", letterSpacing: 0.28, margin: 0 }}>
+              {`Also known by "place," "destination," or "shipping address." This represents the city and state that the delivery was made to.`}
+            </p>
+          </div>
+        )}
+      </div>
+
+      {/* Query box at bottom */}
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 160, borderTop: "1px solid #ececec", background: "white", padding: "12px 16px 6px" }}>
+        <div style={{ border: "1px solid #e0e4e7", borderRadius: 8, padding: "10px 12px", height: 90, background: "white" }}>
+          <p style={{ fontFamily: sf, fontSize: 14, color: "#727679", lineHeight: "18px", margin: 0 }}>
+            Describe an issue you&apos;re seeing... [ex. &quot;Make the agent stop ignoring shipping fees for revenue questions&quot;]
+          </p>
+        </div>
+        <p style={{ fontFamily: sf, fontSize: 11, color: "#727679", lineHeight: "14px", textAlign: "center", margin: "6px 0 0" }}>
+          AI can make mistakes. Consider checking important information for accuracy.
+        </p>
+      </div>
+
+      {/* Lightbulb — panel-relative left=330, top=706 (matching Lightbulb1 in import) */}
+      <div style={{ position: "absolute", left: 330, top: 706, width: 20, height: 20, overflow: "visible", zIndex: 2 }}>
+        <svg width="17" height="20" viewBox="0 0 16.9002 19.9982" fill="none">
+          <path d="M13.2034 9.19261C12.8648 10.229 12.208 11.1629 11.2024 11.994C10.5148 12.5687 10.1865 13.2357 10.1865 14.0464C10.1865 14.0669 10.1865 14.0874 10.1865 14.108H4.79908C4.79908 14.108 4.79908 14.0464 4.79908 14.0156C4.79908 13.2152 4.46045 12.5482 3.79344 12.0146C2.52099 11.0089 1.77189 9.69543 1.57692 8.1254C1.22802 5.32396 2.90067 2.73802 5.64054 1.84525C6.24598 1.65028 6.87194 1.54767 7.50816 1.54767C8.27779 1.54767 9.04741 1.70159 9.77599 1.98892L10.8329 1.59897L11.0895 0.911442C9.26291 -0.0736782 7.11822 -0.26865 5.1685 0.367574C1.72058 1.49636 -0.383064 4.75957 0.0581879 8.29985C0.304468 10.2803 1.23828 11.9325 2.84936 13.2049C3.14695 13.4409 3.28035 13.677 3.28035 13.9951C3.28035 14.7031 3.28035 14.816 3.28035 14.8981C3.28035 14.9802 3.28035 15.0212 3.28035 15.6575V15.8114C3.30088 18.1203 5.19929 19.9982 7.50816 19.9982C9.81704 19.9982 11.736 18.0997 11.736 15.7703C11.736 15.1239 11.736 15.011 11.736 14.9391C11.736 14.8571 11.736 14.8263 11.736 14.0259C11.736 13.6872 11.8591 13.4409 12.1875 13.1741C14.0346 11.6452 14.9684 9.72622 14.9889 7.56101L14.8145 8.0433C14.5374 8.79241 13.8807 9.17209 13.2137 9.19261H13.2034Z" fill="#0E6FF9" />
+        </svg>
+        <div style={{ position: "absolute", top: -8, left: 11, width: 14, height: 14, borderRadius: "50%", background: "#EE5E32", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <span style={{ fontFamily: sf, fontSize: 12, color: "white", lineHeight: "18px" }}>3</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ─── Canvas constants ───────────────────────────────────────────────────────
 const DESIGN_WIDTH = 1663;
 const DESIGN_HEIGHT = 1024;
@@ -227,7 +331,7 @@ function Chevron({ open }: { open: boolean }) {
 }
 
 // ─── Q1 expanded detail ───────────────────────────────────────────────────────
-function Q1Detail() {
+function Q1Detail({ onInspect }: { onInspect: () => void }) {
   const [tab, setTab] = useState<"insights" | "expected">("insights");
   const sf = "system-ui,-apple-system,sans-serif";
   const inter = "Inter,system-ui,sans-serif";
@@ -242,10 +346,13 @@ function Q1Detail() {
         borderRadius: 8,
       }}>
         {/* Inspect Question link */}
-        <span style={{
-          position: "absolute", top: 10, right: 16,
-          fontFamily: sf, fontSize: 12, color: "#0d64e0", cursor: "pointer", whiteSpace: "nowrap",
-        }}>
+        <span
+          onClick={onInspect}
+          style={{
+            position: "absolute", top: 10, right: 16,
+            fontFamily: sf, fontSize: 12, color: "#0d64e0", cursor: "pointer", whiteSpace: "nowrap",
+          }}
+        >
           Inspect Question &gt;
         </span>
 
@@ -334,11 +441,13 @@ function QuestionRow({
   isQ1,
   expanded,
   onToggle,
+  onInspect,
 }: {
   question: typeof QUESTIONS[0];
   isQ1: boolean;
   expanded: boolean;
   onToggle?: () => void;
+  onInspect?: () => void;
 }) {
   return (
     <div>
@@ -387,7 +496,7 @@ function QuestionRow({
           transition={{ duration: 0.38, ease: [0.4, 0, 0.2, 1] }}
           style={{ overflow: "hidden" }}
         >
-          <Q1Detail />
+          <Q1Detail onInspect={onInspect ?? (() => {})} />
         </motion.div>
       )}
     </div>
@@ -395,7 +504,7 @@ function QuestionRow({
 }
 
 // ─── Animated question list overlay ──────────────────────────────────────────
-function QuestionList({ expanded, onToggle }: { expanded: boolean; onToggle: () => void }) {
+function QuestionList({ expanded, onToggle, onInspect }: { expanded: boolean; onToggle: () => void; onInspect: () => void }) {
   const sf = "system-ui,-apple-system,sans-serif";
 
   return (
@@ -423,10 +532,201 @@ function QuestionList({ expanded, onToggle }: { expanded: boolean; onToggle: () 
             isQ1={i === 0}
             expanded={expanded}
             onToggle={onToggle}
+            onInspect={onInspect}
           />
         ))}
       </div>
     </div>
+  );
+}
+
+// ─── Unified Right Panel ─────────────────────────────────────────────────────
+// Two floating cards matching MacroViewV2 layout:
+//   Main card:  left=1277 top=68 w=379 h=700  (rounded, shadow)
+//   Query card: left=1276 top=783 w=380 h=179 (separate floating card)
+// Renders on top of both macro and micro views.
+function UnifiedRightPanel({ tab, onTabChange, view }: { tab: "custom" | "column"; onTabChange: (t: "custom" | "column") => void; view: "macro" | "micro" }) {
+  const sf = "system-ui,-apple-system,sans-serif";
+  const inter = "Inter,system-ui,sans-serif";
+  const [sectionOpen, setSectionOpen] = useState(true);
+
+  const tabBar = (
+    <div style={{ position: "absolute", top: 20, left: 20, display: "flex", gap: 14, alignItems: "flex-end", height: 34 }}>
+      {/* Custom Instructions tab */}
+      <div onClick={() => onTabChange("custom")} style={{ cursor: "pointer", flexShrink: 0, paddingBottom: 10, position: "relative" }}>
+        <span style={{ fontFamily: inter, fontSize: 14, fontWeight: tab === "custom" ? 600 : 400, color: tab === "custom" ? "#0e6ff9" : "#181825", lineHeight: "22px" }}>
+          Custom Instructions
+        </span>
+        {tab === "custom" && (
+          <div style={{ position: "absolute", bottom: 0, left: 0, width: 152, height: 3, background: "#0e6ff9", borderRadius: "2px 2px 0 0" }} />
+        )}
+      </div>
+      {/* Column Descriptions tab */}
+      <div onClick={() => onTabChange("column")} style={{ cursor: "pointer", flexShrink: 0, paddingBottom: 10, position: "relative" }}>
+        <span style={{ fontFamily: inter, fontSize: 14, fontWeight: tab === "column" ? 600 : 400, color: tab === "column" ? "#0e6ff9" : "#181825", lineHeight: "22px" }}>
+          Column Descriptions
+        </span>
+        {tab === "column" && (
+          <div style={{ position: "absolute", bottom: 0, left: 0, width: 152, height: 3, background: "#0e6ff9", borderRadius: "2px 2px 0 0" }} />
+        )}
+      </div>
+    </div>
+  );
+
+  const customContent = (
+    <div style={{ position: "absolute", top: 76, left: 17, right: 17, bottom: 0, overflow: "hidden" }}>
+      <p style={{ fontFamily: sf, fontSize: 12, color: "#29313b", lineHeight: "16px", letterSpacing: 0, margin: "0 0 18px", textTransform: "uppercase" }}>Custom Instructions</p>
+      {/* Toggle row */}
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 18 }}>
+        <span style={{ fontFamily: sf, fontSize: 12, color: "#29313b", lineHeight: "18px" }}>Show diffs since last save</span>
+        <div style={{ width: 37, height: 20, position: "relative", flexShrink: 0 }}>
+          <div style={{ position: "absolute", left: 0, top: 6, width: 24, height: 8, background: "#0e6ff9", borderRadius: 4 }} />
+          <div style={{ position: "absolute", left: 18, top: 1, width: 18, height: 18, borderRadius: "50%", background: "white", boxShadow: "0 1px 2px rgba(14,111,249,0.4), 0 1px 1px rgba(0,0,0,0.3)", border: "0.5px solid rgba(14,111,249,0.4)" }} />
+        </div>
+      </div>
+      {/* Box 1 */}
+      <div style={{ marginBottom: 18 }}>
+        <p style={{ fontFamily: sf, fontSize: 14, color: "#29313b", lineHeight: "18px", margin: "0 0 6px" }}>Tell the bot about your business background, and the special requirements on the data.</p>
+        <div style={{ background: "#f2f3f5", borderRadius: 4, padding: "6px 12px", minHeight: 60, marginBottom: 4, position: "relative" }}>
+          <div style={{ position: "absolute", left: 7, top: 9, right: 7, height: 17, background: "rgba(206,245,195,0.4)" }} />
+          <div style={{ position: "absolute", left: 7, top: 26, width: 183, height: 17, background: "rgba(206,245,195,0.4)" }} />
+          <p style={{ fontFamily: inter, fontSize: 14, color: "black", lineHeight: "18px", margin: 0, position: "relative" }}>
+            A sale refers to an individual order which may contain multiple products.
+          </p>
+        </div>
+        <p style={{ fontFamily: sf, fontSize: 12, color: "#727679", lineHeight: "16px", textAlign: "right", margin: 0 }}>0/500</p>
+      </div>
+      {/* Box 2 */}
+      <div style={{ marginBottom: 18 }}>
+        <p style={{ fontFamily: sf, fontSize: 14, color: "#29313b", lineHeight: "18px", margin: "0 0 6px" }}>Specify the format of the responses that the bot should use.</p>
+        <div style={{ background: "#f2f3f5", borderRadius: 4, height: 80, marginBottom: 4 }} />
+        <p style={{ fontFamily: sf, fontSize: 12, color: "#727679", lineHeight: "16px", textAlign: "right", margin: 0 }}>0/500</p>
+      </div>
+      {/* Box 3 — faded */}
+      <div>
+        <p style={{ fontFamily: sf, fontSize: 14, color: "rgba(41,49,59,0.67)", lineHeight: "18px", margin: "0 0 6px" }}>Specify the types of questions that should be rejected at the agent level.</p>
+        <div style={{ background: "linear-gradient(to bottom, rgba(242,243,245,0.42), rgba(242,243,245,0.13))", borderRadius: 4, height: 80 }} />
+      </div>
+    </div>
+  );
+
+  const columnContent = (
+    <div style={{ position: "absolute", top: 55, left: 0, right: 0, bottom: 0, overflow: "hidden" }}>
+      {/* Section header */}
+      <div
+        onClick={() => setSectionOpen(v => !v)}
+        style={{ display: "flex", alignItems: "center", gap: 6, padding: "12px 12px 8px 9px", cursor: "pointer" }}
+      >
+        <motion.div animate={{ rotate: sectionOpen ? 0 : -90 }} transition={{ duration: 0.2 }} style={{ display: "flex", transformOrigin: "50% 50%" }}>
+          <svg width="12" height="7" viewBox="0 0 11.3186 6.72747" fill="none">
+            <line stroke="black" transform="matrix(0.686144 0.727466 -0.686144 0.727466 0 0.727466)" x2="8.24781" y1="-0.5" y2="-0.5" />
+            <line stroke="black" transform="matrix(-0.686144 0.727466 0.686144 0.727466 11.3186 0.727466)" x2="8.24781" y1="-0.5" y2="-0.5" />
+          </svg>
+        </motion.div>
+        <span style={{ fontFamily: sf, fontSize: 14, color: "black", letterSpacing: 0.28, lineHeight: "20px" }}>Retail Delivery Order Data</span>
+      </div>
+      {sectionOpen && (
+        <div style={{ padding: "0 12px 0 25px" }}>
+          <p style={{ fontFamily: sf, fontSize: 14, color: "#2d2d2d", lineHeight: "20px", letterSpacing: 0.28, margin: "0 0 20px" }}>
+            This dataset serves as the primary transaction and fulfillment ledger for our retail delivery operations, capturing essential post-checkout logistics. It tracks unique product identifiers, transaction codes, shipping destinations, and precise carrier drop-off timestamps. An AI chatbot can leverage this structured data to instantly resolve customer support inquiries, verify shipping success, and provide geographic status updates.
+          </p>
+          <p style={{ fontFamily: sf, fontSize: 14, color: "#2d2d2d", lineHeight: "20px", letterSpacing: 0.28, margin: "0 0 6px" }}>Product ID</p>
+          <p style={{ fontFamily: sf, fontSize: 14, color: "#2d2d2d", lineHeight: "20px", letterSpacing: 0.28, margin: "0 0 20px" }}>
+            {`Also referred to as "item code" or "SKU." This is the unique alphanumeric string assigned to every item in our catalog. If a user asks "what did I buy?" or "can you look up this item?", cross-reference their query against this field.`}
+          </p>
+          <p style={{ fontFamily: sf, fontSize: 14, color: "#2d2d2d", lineHeight: "20px", letterSpacing: 0.28, margin: "0 0 6px" }}>Order Number</p>
+          <p style={{ fontFamily: sf, fontSize: 14, color: "#7b7b7b", lineHeight: "20px", letterSpacing: 0.28, margin: "0 0 20px" }}>
+            {`Also known as "invoice number" or "purchase ID." This is the primary key used to track a complete transaction from checkout to delivery. Use this field when a user asks about the status, return eligibility, or contents of a specific purchase.`}
+          </p>
+          <p style={{ fontFamily: sf, fontSize: 14, color: "rgba(45,45,45,0.23)", lineHeight: "20px", letterSpacing: 0.28, margin: "0 0 6px" }}>Location (City)</p>
+          <p style={{ fontFamily: sf, fontSize: 14, color: "rgba(45,45,45,0.23)", lineHeight: "20px", letterSpacing: 0.28, margin: 0 }}>
+            {`Also known by "place," "destination," or "shipping address."`}
+          </p>
+        </div>
+      )}
+    </div>
+  );
+
+  // Macro: query card top=783, h=179 → bottom=962 (matches question panel bottom)
+  // Micro: Interpretation panel bottom = 69+934 = 1003 → query card h = 1003-783 = 220
+  const queryCardHeight = view === "micro" ? 220 : 179;
+
+  const lightbulbSvgPath = "M13.2034 9.19261C12.8648 10.229 12.208 11.1629 11.2024 11.994C10.5148 12.5687 10.1865 13.2357 10.1865 14.0464C10.1865 14.0669 10.1865 14.0874 10.1865 14.108H4.79908C4.79908 14.108 4.79908 14.0464 4.79908 14.0156C4.79908 13.2152 4.46045 12.5482 3.79344 12.0146C2.52099 11.0089 1.77189 9.69543 1.57692 8.1254C1.22802 5.32396 2.90067 2.73802 5.64054 1.84525C6.24598 1.65028 6.87194 1.54767 7.50816 1.54767C8.27779 1.54767 9.04741 1.70159 9.77599 1.98892L10.8329 1.59897L11.0895 0.911442C9.26291 -0.0736782 7.11822 -0.26865 5.1685 0.367574C1.72058 1.49636 -0.383064 4.75957 0.0581879 8.29985C0.304468 10.2803 1.23828 11.9325 2.84936 13.2049C3.14695 13.4409 3.28035 13.677 3.28035 13.9951C3.28035 14.7031 3.28035 14.816 3.28035 14.8981C3.28035 14.9802 3.28035 15.0212 3.28035 15.6575V15.8114C3.30088 18.1203 5.19929 19.9982 7.50816 19.9982C9.81704 19.9982 11.736 18.0997 11.736 15.7703C11.736 15.1239 11.736 15.011 11.736 14.9391C11.736 14.8571 11.736 14.8263 11.736 14.0259C11.736 13.6872 11.8591 13.4409 12.1875 13.1741C14.0346 11.6452 14.9684 9.72622 14.9889 7.56101L14.8145 8.0433C14.5374 8.79241 13.8807 9.17209 13.2137 9.19261H13.2034Z";
+
+  return (
+    <>
+      {/* Cover native right panel from both MacroView and MicroView */}
+      <div style={{ position: "absolute", left: 1276, top: 46, width: 390, height: 978, background: "#fafafa", zIndex: 9 }} />
+
+      {/* Main floating card — fixed size across both views */}
+      <div style={{
+        position: "absolute", left: 1277, top: 68, width: 379, height: 700,
+        background: "white", borderRadius: 8,
+        boxShadow: "-1px 0px 12px 0px rgba(0,0,0,0.15)",
+        overflow: "hidden", zIndex: 10,
+      }}>
+        {tabBar}
+        <div style={{ position: "absolute", top: 54, left: 0, right: 0, height: 1, background: "#ececec" }} />
+        {tab === "custom" ? customContent : columnContent}
+
+        {/* Lightbulb locked to bottom-right of main card — never moves */}
+        <div style={{ position: "absolute", right: 16, bottom: 16, width: 20, height: 20, overflow: "visible", zIndex: 2 }}>
+          <svg width="17" height="20" viewBox="0 0 16.9002 19.9982" fill="none">
+            <path d={lightbulbSvgPath} fill="#0E6FF9" />
+          </svg>
+          <div style={{ position: "absolute", top: -8, left: 11, width: 14, height: 14, borderRadius: "50%", background: "#EE5E32", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <span style={{ fontFamily: sf, fontSize: 12, color: "white", lineHeight: "18px" }}>3</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Separate floating query box card — grows in micro view */}
+      <div style={{
+        position: "absolute", left: 1276, top: 783, width: 380, height: queryCardHeight,
+        background: "white", borderRadius: 8,
+        boxShadow: "-1px 2px 6px 0px rgba(0,0,0,0.13)",
+        overflow: "hidden", zIndex: 10,
+        display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+        gap: 0,
+      }}>
+        {/* Inner query box with border and drop shadow */}
+        <div style={{
+          marginLeft: 16, marginRight: 16, width: "calc(100% - 32px)",
+          height: 112, borderRadius: 8, background: "white",
+          boxShadow: "0px 1px 2px rgba(0,0,0,0.1)",
+          border: "1px solid #e0e4e7",
+          padding: "10px 12px", position: "relative",
+          display: "flex", flexDirection: "column", gap: 8,
+          flexShrink: 0,
+        }}>
+          <p style={{ fontFamily: sf, fontSize: 14, color: "#727679", lineHeight: "18px", margin: 0, minHeight: 38 }}>
+            Describe an issue you&apos;re seeing... (ex. &quot;Make the agent stop ignoring shipping fees for revenue questions&quot;)
+          </p>
+          {/* Bottom row with magic wand icon */}
+          <div style={{ height: 28, width: "100%", position: "relative", flexShrink: 0 }}>
+            <div style={{ position: "absolute", right: 3, top: 4, width: 20, height: 20 }}>
+              {/* Magic wand / sparkle icon */}
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <g clipPath="url(#qbe-clip)">
+                  <path d="M15.8333 2.5L17.5 5L15.8333 7.5L13.3333 5L15.8333 2.5ZM7.5 10.8333L13.3333 5L15.8333 7.5L10 13.3333L7.5 10.8333ZM2.5 15.8333L7.5 10.8333L9.16667 12.5L4.16667 17.5L2.5 15.8333ZM12.5 2.5L13.3333 4.16667L15 5L13.3333 5.83333L12.5 7.5L11.6667 5.83333L10 5L11.6667 4.16667L12.5 2.5ZM5 12.5L5.41667 13.3333L6.25 13.75L5.41667 14.1667L5 15L4.58333 14.1667L3.75 13.75L4.58333 13.3333L5 12.5Z" fill="#A9ADB1"/>
+                </g>
+                <defs>
+                  <clipPath id="qbe-clip"><rect width="20" height="20" fill="white"/></clipPath>
+                </defs>
+              </svg>
+            </div>
+          </div>
+        </div>
+        {/* Disclaimer */}
+        <p style={{
+          fontFamily: sf, fontSize: 11, color: "#727679",
+          lineHeight: "14px", textAlign: "center",
+          margin: "8px 0 0", width: 348,
+        }}>
+          AI can make mistakes.{"  "}Consider checking important information for accuracy.
+        </p>
+      </div>
+    </>
   );
 }
 
@@ -435,6 +735,7 @@ export default function App() {
   const rootRef = useRef<HTMLDivElement>(null);
   const [expanded, setExpanded] = useState(false);
   const [rightTab, setRightTab] = useState<"custom" | "column">("custom");
+  const [view, setView] = useState<"macro" | "micro">("macro");
 
   useEffect(() => {
     const update = () => {
@@ -462,41 +763,41 @@ export default function App() {
           inset: 0,
         }}
       >
-        {/* Static base: toolbar, sidebar, panel chrome + AI summary */}
-        <MacroView />
-
-        {/* Tab click zones on MacroViewV2 right panel tab bar (canvas y≈68-122) */}
-        {/* Custom Instructions tab: covers roughly x=1297-1449, Column Descriptions: x=1463-1607 */}
-        <div
-          onClick={() => setRightTab("custom")}
-          style={{ position: "absolute", left: 1297, top: 88, width: 152, height: 34, cursor: "pointer", zIndex: 15 }}
-        />
-        <div
-          onClick={() => setRightTab("column")}
-          style={{ position: "absolute", left: 1463, top: 88, width: 152, height: 34, cursor: "pointer", zIndex: 15 }}
-        />
-
-        {/* Column Descriptions panel overlay */}
-        {rightTab === "column" && (
-          <ColumnDescriptionsPanel onClose={() => setRightTab("custom")} />
+        {/* Base view — only the central content changes */}
+        {view === "micro" ? (
+          <>
+            <MicroView />
+            {/* Back to Overview click zone */}
+            <div
+              onClick={() => setView("macro")}
+              style={{ position: "absolute", left: 326, top: 69, width: 160, height: 28, cursor: "pointer", zIndex: 50 }}
+            />
+          </>
+        ) : (
+          <>
+            <MacroView />
+            {/* Animated question list overlay */}
+            <div style={{
+              position: "absolute",
+              left: PANEL_VIS_LEFT,
+              top: PANEL_VIS_TOP + OVERLAY_PANEL_Y,
+              width: PANEL_W,
+              height: PANEL_H - OVERLAY_PANEL_Y,
+              background: "white",
+              overflow: "hidden",
+              zIndex: 5,
+            }}>
+              <QuestionList
+                expanded={expanded}
+                onToggle={() => setExpanded((v) => !v)}
+                onInspect={() => setView("micro")}
+              />
+            </div>
+          </>
         )}
 
-        {/* Lightbulb badge — only shown over Column Descriptions panel (Custom Instructions has its own built-in one) */}
-        {rightTab === "column" && <LightbulbBadge />}
-
-        {/* Animated overlay — covers only the question-list area of the panel */}
-        <div style={{
-          position: "absolute",
-          left: PANEL_VIS_LEFT,
-          top: PANEL_VIS_TOP + OVERLAY_PANEL_Y,
-          width: PANEL_W,
-          height: PANEL_H - OVERLAY_PANEL_Y,
-          background: "white",
-          overflow: "hidden",
-          zIndex: 5,
-        }}>
-          <QuestionList expanded={expanded} onToggle={() => setExpanded((v) => !v)} />
-        </div>
+        {/* Unified right panel — always rendered, covers both views' native panels */}
+        <UnifiedRightPanel tab={rightTab} onTabChange={setRightTab} view={view} />
       </div>
     </div>
   );
