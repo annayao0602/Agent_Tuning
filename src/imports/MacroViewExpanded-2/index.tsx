@@ -1,0 +1,1200 @@
+import svgPaths from "./svg-ujtd0o06ue";
+
+function EditingModeToolbarIndicator() {
+  return (
+    <div className="absolute right-[629px] size-[11px] top-[-46px]" data-name="Editing Mode - Toolbar Indicator">
+      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 11 11">
+        <g id="Editing Mode - Toolbar Indicator" />
+      </svg>
+    </div>
+  );
+}
+
+function Frame9() {
+  return (
+    <div className="content-stretch flex gap-[10px] items-center px-[4px] relative shrink-0 w-[23px]">
+      <div className="[word-break:break-word] flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold justify-center leading-[0] not-italic relative shrink-0 text-[#0e6ff9] text-[14px] text-right whitespace-nowrap">
+        <p className="leading-[22px]">Custom Instructions</p>
+      </div>
+    </div>
+  );
+}
+
+function Line() {
+  return (
+    <div className="h-0 relative shrink-0 w-[33px]">
+      <div className="absolute inset-[-3px_-360.61%_0_0]">
+        <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 152 3">
+          <g id="Line 727">
+            <line id="Line 726" stroke="var(--stroke-0, #0E6FF9)" strokeWidth="3" x2="152" y1="1.5" y2="1.5" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function TabItem() {
+  return (
+    <div className="content-stretch flex flex-col gap-[12px] h-[34px] items-start relative shrink-0 w-[152px]" data-name="Tab Item">
+      <Frame9 />
+      <Line />
+    </div>
+  );
+}
+
+function Group10() {
+  return (
+    <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0">
+      <div className="[word-break:break-word] col-1 flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center ml-0 mt-0 not-italic relative row-1 text-[#181825] text-[14px] w-[147px]">
+        <p className="leading-[22px]">Column Descriptions</p>
+      </div>
+    </div>
+  );
+}
+
+function Frame11() {
+  return (
+    <div className="content-stretch flex items-center relative shrink-0 w-[73px]">
+      <Group10 />
+    </div>
+  );
+}
+
+function TabItem1() {
+  return (
+    <div className="content-stretch flex flex-col gap-[12px] h-[34px] items-start relative shrink-0 w-[144px]" data-name="Tab Item">
+      <Frame11 />
+    </div>
+  );
+}
+
+function Tab() {
+  return (
+    <div className="content-stretch flex gap-[14px] h-[34px] items-center relative shrink-0" data-name="Tab 1">
+      <TabItem />
+      <TabItem1 />
+    </div>
+  );
+}
+
+function TabBar() {
+  return (
+    <div className="absolute content-stretch flex flex-col h-[34px] items-center left-[20px] top-[20px]" data-name="Tab Bar">
+      <Tab />
+    </div>
+  );
+}
+
+function EnableInstruction() {
+  return (
+    <div className="content-stretch flex gap-[18px] items-center justify-end relative shrink-0 w-full" data-name="Enable instruction">
+      <p className="[word-break:break-word] font-['SF_Pro_Text:Regular',sans-serif] leading-[18px] not-italic relative shrink-0 text-[#29313b] text-[12px] whitespace-nowrap">Show diffs since last save</p>
+      <div className="h-[18px] relative shrink-0 w-[36px]" data-name="Toggle">
+        <div className="absolute inset-[0_-2.78%_-11.11%_0]">
+          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 37 20">
+            <g id="switch_ON">
+              <rect fill="var(--fill-0, #0E6FF9)" height="8" id="groove" rx="4" width="24" y="5" />
+              <g filter="url(#filter0_d_1_2501)" id="ring">
+                <circle cx="27" cy="9" fill="var(--fill-0, white)" r="9" />
+                <circle cx="27" cy="9" r="8.5" stroke="var(--stroke-0, #0E6FF9)" strokeOpacity="0.4" />
+              </g>
+            </g>
+            <defs>
+              <filter colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="20" id="filter0_d_1_2501" width="20" x="17" y="0">
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                <feColorMatrix in="SourceAlpha" result="hardAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                <feOffset dy="1" />
+                <feGaussianBlur stdDeviation="0.5" />
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0" />
+                <feBlend in2="BackgroundImageFix" mode="normal" result="effect1_dropShadow_1_2501" />
+                <feBlend in="SourceGraphic" in2="effect1_dropShadow_1_2501" mode="normal" result="shape" />
+              </filter>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function InfoArea() {
+  return (
+    <div className="content-stretch flex flex-col items-start overflow-clip py-[2px] relative shrink-0 w-[14px]" data-name="Info Area">
+      <div className="h-[14px] relative shrink-0 w-full" data-name="Info">
+        <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 14 14">
+          <path d={svgPaths.pc667e00} fill="var(--fill-0, #727679)" id="info" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function Frame1() {
+  return (
+    <div className="content-stretch flex items-start justify-between relative shrink-0 w-[346px]">
+      <p className="[word-break:break-word] flex-[1_0_0] font-['SF_Pro_Text:Regular',sans-serif] leading-[18px] min-w-px not-italic relative text-[#29313b] text-[14px]">Tell the bot about your business background, and the special requirements on the data.</p>
+      <InfoArea />
+    </div>
+  );
+}
+
+function Frame() {
+  return (
+    <div className="content-stretch flex flex-col items-center justify-center relative shrink-0">
+      <Frame1 />
+    </div>
+  );
+}
+
+function Box() {
+  return (
+    <div className="bg-[#f2f3f5] h-[188px] overflow-clip relative rounded-[4px] shrink-0 w-full" data-name="Box">
+      <div className="absolute bg-[rgba(206,245,195,0.4)] h-[17px] left-[7px] top-[9px] w-[324px]" />
+      <div className="absolute bg-[rgba(206,245,195,0.4)] h-[17px] left-[7px] top-[26px] w-[183px]" />
+      <p className="[word-break:break-word] absolute font-['Inter:Regular',sans-serif] font-normal leading-[18px] left-[12px] not-italic text-[14px] text-black top-[6px] w-[332px]">A sale refers to an individual order which may contain multiple products.</p>
+    </div>
+  );
+}
+
+function Frame4() {
+  return (
+    <div className="content-stretch flex flex-col gap-[6px] items-start relative shrink-0 w-full">
+      <Box />
+      <p className="[word-break:break-word] font-['SF_Pro_Text:Regular',sans-serif] leading-[16px] not-italic relative shrink-0 text-[#727679] text-[12px] text-right w-full">0/500</p>
+    </div>
+  );
+}
+
+function Requirements() {
+  return (
+    <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full" data-name="requirements">
+      <Frame />
+      <Frame4 />
+    </div>
+  );
+}
+
+function InfoArea1() {
+  return (
+    <div className="h-[18px] overflow-clip relative shrink-0 w-[14px]" data-name="Info Area">
+      <div className="-translate-x-1/2 -translate-y-1/2 absolute left-1/2 size-[14px] top-1/2" data-name="Info">
+        <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 14 14">
+          <path d={svgPaths.pc667e00} fill="var(--fill-0, #727679)" id="info" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function Frame2() {
+  return (
+    <div className="content-stretch flex items-center justify-between relative shrink-0 w-full">
+      <p className="[word-break:break-word] flex-[1_0_0] font-['SF_Pro_Text:Regular',sans-serif] leading-[18px] min-w-px not-italic relative text-[#29313b] text-[14px]">Specify the format of the responses that the bot should use.</p>
+      <InfoArea1 />
+    </div>
+  );
+}
+
+function Frame5() {
+  return (
+    <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
+      <Frame2 />
+    </div>
+  );
+}
+
+function Box1() {
+  return <div className="bg-[#f2f3f5] h-[191px] relative rounded-[4px] shrink-0 w-full" data-name="Box" />;
+}
+
+function Frame6() {
+  return (
+    <div className="content-stretch flex flex-col gap-[6px] h-[213px] items-start justify-center relative shrink-0 w-full">
+      <Box1 />
+      <p className="[word-break:break-word] font-['SF_Pro_Text:Regular',sans-serif] leading-[16px] not-italic relative shrink-0 text-[#727679] text-[12px] text-right w-full">0/500</p>
+    </div>
+  );
+}
+
+function Format() {
+  return (
+    <div className="content-stretch flex flex-col gap-[12px] h-[261px] items-start overflow-clip relative shrink-0 w-full" data-name="format">
+      <Frame5 />
+      <Frame6 />
+    </div>
+  );
+}
+
+function InfoArea2() {
+  return (
+    <div className="h-[18px] overflow-clip relative shrink-0 w-[14px]" data-name="Info Area">
+      <div className="-translate-x-1/2 -translate-y-1/2 absolute left-1/2 size-[14px] top-1/2" data-name="Info">
+        <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 14 14">
+          <path d={svgPaths.pc667e00} fill="var(--fill-0, #727679)" id="info" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function Frame3() {
+  return (
+    <div className="content-stretch flex items-center justify-between relative shrink-0 w-full">
+      <p className="[word-break:break-word] flex-[1_0_0] font-['SF_Pro_Text:Regular',sans-serif] leading-[18px] min-w-px not-italic relative text-[14px] text-[rgba(41,49,59,0.67)]">Specify the types of questions that should be rejected at the agent level.</p>
+      <InfoArea2 />
+    </div>
+  );
+}
+
+function Frame7() {
+  return (
+    <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
+      <Frame3 />
+    </div>
+  );
+}
+
+function Box2() {
+  return <div className="bg-gradient-to-b from-[rgba(242,243,245,0.42)] h-[189px] relative rounded-[4px] shrink-0 to-[66.346%] to-[rgba(242,243,245,0.13)] w-full" data-name="Box" />;
+}
+
+function Frame8() {
+  return (
+    <div className="bg-white content-stretch flex flex-col gap-[6px] items-start justify-center relative shrink-0 w-full">
+      <Box2 />
+      <p className="[word-break:break-word] font-['SF_Pro_Text:Regular',sans-serif] leading-[16px] not-italic relative shrink-0 text-[#727679] text-[12px] text-right w-full">0/500</p>
+    </div>
+  );
+}
+
+function Format1() {
+  return (
+    <div className="content-stretch flex flex-col gap-[12px] h-[269px] items-start overflow-clip relative shrink-0 w-full" data-name="format">
+      <Frame7 />
+      <Frame8 />
+    </div>
+  );
+}
+
+function CustomInstructions() {
+  return (
+    <div className="absolute content-stretch flex flex-col gap-[18px] items-start left-[17px] top-[76px] w-[346px]" data-name="Custom Instructions">
+      <p className="[word-break:break-word] font-['SF_Pro_Text:Regular',sans-serif] leading-[16px] not-italic relative shrink-0 text-[#29313b] text-[12px] uppercase whitespace-nowrap">Custom INSTRUCTIONS</p>
+      <EnableInstruction />
+      <Requirements />
+      <Format />
+      <Format1 />
+    </div>
+  );
+}
+
+function QueryBoxEntry() {
+  return (
+    <div className="absolute bg-white content-stretch flex flex-col gap-[6px] items-center justify-end left-0 pb-[6px] pt-[12px] px-[16px] top-[834px]" data-name="Query Box Entry">
+      <div className="bg-white content-stretch drop-shadow-[0px_1px_2px_rgba(0,0,0,0.1)] flex flex-col gap-[8px] h-[90px] items-center px-[12px] py-[10px] relative rounded-[8px] shrink-0" data-name="Query Box">
+        <div aria-hidden className="absolute border border-[#e0e4e7] border-solid inset-0 pointer-events-none rounded-[8px]" />
+        <p className="[word-break:break-word] font-['SF_Pro_Text:Regular',sans-serif] leading-[18px] min-h-[38px] min-w-full not-italic relative shrink-0 text-[#727679] text-[14px] w-[min-content]">Draft a custom instruction here</p>
+        <div className="h-[28px] relative shrink-0 w-[324px]" data-name="Query Box Bottom">
+          <div className="absolute left-[304px] size-[20px] top-[4px]" data-name="Query Box Icons">
+            <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20 20">
+              <path d={svgPaths.pcf85f00} fill="var(--fill-0, #A9ADB1)" id="Send" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <p className="[word-break:break-word] font-['SF_Pro_Text:Regular',sans-serif] leading-[14px] not-italic relative shrink-0 text-[#727679] text-[11px] text-center w-[348px] whitespace-pre-wrap">{`AI can make mistakes.  Consider checking important information for accuracy.`}</p>
+    </div>
+  );
+}
+
+function Lightbulb() {
+  return (
+    <div className="absolute contents left-[336px] top-[807px]" data-name="lightbulb">
+      <div className="absolute left-[336px] overflow-clip size-[20px] top-[814px]" data-name="Query Box Icons">
+        <div className="absolute inset-[0.01%_4.23%_0_11.27%]" data-name="recommendation">
+          <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 16.9002 19.9982">
+            <path d={svgPaths.p16b66d00} fill="var(--fill-0, #0E6FF9)" id="recommendation" />
+          </svg>
+        </div>
+      </div>
+      <div className="absolute left-[347px] size-[14px] top-[809px]">
+        <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 14 14">
+          <circle cx="7" cy="7" fill="var(--fill-0, #EE5E32)" id="Ellipse 11" r="7" />
+        </svg>
+      </div>
+      <p className="[word-break:break-word] absolute font-['SF_Pro_Text:Regular',sans-serif] leading-[18px] left-[350px] not-italic text-[12px] text-white top-[807px] whitespace-nowrap">3</p>
+    </div>
+  );
+}
+
+function AiSuggestionsV4Micro() {
+  return (
+    <div className="absolute bg-white h-[976px] left-[1282px] overflow-clip shadow-[-1px_0px_2px_0px_rgba(0,0,0,0.1)] top-[48px] w-[379px]" data-name="AI suggestions V4 - micro">
+      <TabBar />
+      <CustomInstructions />
+      <QueryBoxEntry />
+      <Lightbulb />
+    </div>
+  );
+}
+
+function Colose() {
+  return (
+    <div className="absolute left-[2px] size-[14px] top-[2px]" data-name="Colose">
+      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 14 14">
+        <g clipPath="url(#clip0_1_2469)" id="Colose">
+          <path d={svgPaths.p46e500} fill="var(--fill-0, #181825)" id="close" />
+        </g>
+        <defs>
+          <clipPath id="clip0_1_2469">
+            <rect fill="white" height="14" width="14" />
+          </clipPath>
+        </defs>
+      </svg>
+    </div>
+  );
+}
+
+function Save() {
+  return (
+    <div className="relative shrink-0 size-[18px]" data-name="Save">
+      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 18 18">
+        <g id="Save">
+          <path d={svgPaths.p5c93b70} id="Rectangle 34625315" stroke="var(--stroke-0, #181825)" />
+          <path d={svgPaths.p2a1d9a00} fill="var(--fill-0, #181825)" id="Subtract" />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+function Icon() {
+  return (
+    <div className="content-stretch flex items-center px-[5px] py-[4px] relative rounded-bl-[6px] rounded-tl-[6px] shrink-0" data-name="Icon2">
+      <div className="relative shrink-0 size-[18px]" data-name="Save">
+        <div className="flex flex-row items-center justify-center size-full">
+          <div className="content-stretch flex items-center justify-center p-[10px] relative size-full">
+            <Save />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Arrow() {
+  return (
+    <div className="h-[26px] relative rounded-br-[6px] rounded-tr-[6px] shrink-0 w-[12px]" data-name="Arrow">
+      <div className="flex flex-row items-center justify-center size-full">
+        <div className="content-stretch flex items-center justify-center px-[8px] py-[4px] relative size-full">
+          <div className="overflow-clip relative shrink-0 size-[12px]" data-name="Arrows">
+            <div className="-translate-x-1/2 -translate-y-1/2 absolute flex h-[2px] items-center justify-center left-1/2 top-1/2 w-[5px]">
+              <div className="-rotate-90 flex-none">
+                <div className="h-[5px] relative w-[2px]">
+                  <div className="absolute inset-[-10%_-25%]">
+                    <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 3.00002 6.00004">
+                      <path d={svgPaths.p1e75c740} id="Line 713" stroke="var(--stroke-0, #181825)" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Frame13() {
+  return (
+    <div className="bg-[rgba(153,180,208,0.1)] h-[26px] relative rounded-br-[6px] rounded-tr-[6px] shrink-0 w-[12px]">
+      <div className="flex flex-row items-center justify-center size-full">
+        <div className="content-stretch flex items-center justify-center px-[8px] py-[4px] relative size-full">
+          <div className="overflow-clip relative shrink-0 size-[12px]" data-name="Arrows">
+            <div className="-translate-x-1/2 -translate-y-1/2 absolute flex h-[2px] items-center justify-center left-1/2 top-1/2 w-[5px]">
+              <div className="-rotate-90 flex-none">
+                <div className="h-[5px] relative w-[2px]">
+                  <div className="absolute inset-[-10%_-25%]">
+                    <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 3.00002 6.00004">
+                      <path d={svgPaths.p1e75c740} id="Line 713" stroke="var(--stroke-0, #181825)" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function UndoAndArrow() {
+  return (
+    <div className="content-stretch flex gap-[6px] items-center relative shrink-0" data-name="Undo and Arrow">
+      <div className="overflow-clip relative shrink-0 size-[18px]" data-name="Undo and Redo">
+        <div className="-translate-x-1/2 -translate-y-1/2 absolute h-[13.333px] left-1/2 top-1/2 w-[16px]" data-name="undo_fill">
+          <div className="absolute inset-[-3.76%_-3.12%_-3.75%_-3.13%]">
+            <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 17 14.3351">
+              <path clipRule="evenodd" d={svgPaths.p2b862c00} fillRule="evenodd" id="undo_fill" stroke="var(--stroke-0, #181825)" strokeLinejoin="round" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <Frame13 />
+    </div>
+  );
+}
+
+function UndoAndRedo() {
+  return (
+    <div className="absolute content-stretch flex gap-[12px] items-center left-[1255px] top-[8.5px]" data-name="Undo and Redo">
+      <UndoAndArrow />
+      <div className="flex items-center justify-center relative shrink-0">
+        <div className="-scale-y-100 flex-none rotate-180">
+          <div className="relative size-[18px]" data-name="Undo and Redo">
+            <div className="-translate-x-1/2 -translate-y-1/2 absolute h-[13.333px] left-1/2 top-[calc(50%-0.33px)] w-[16px]" data-name="undo_fill">
+              <div className="absolute inset-[-3.76%_-3.12%_-3.75%_-3.13%]">
+                <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 17 14.3351">
+                  <path clipRule="evenodd" d={svgPaths.p2b862c00} fillRule="evenodd" id="undo_fill" stroke="var(--stroke-0, #181825)" strokeLinejoin="round" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function RIghtSideIcons() {
+  return (
+    <div className="absolute contents left-[1255px] top-[8.5px]" data-name="RIght side icons">
+      <div className="absolute bg-[#8b8b92] content-stretch flex gap-[10px] h-[26px] items-center justify-center left-[1523px] max-h-[26px] min-h-[26px] min-w-[60px] overflow-clip px-[12px] py-[4px] rounded-[6px] top-[9.5px]" data-name="Button">
+        <p className="[word-break:break-word] font-['SF_Pro_Text:Regular',sans-serif] leading-[16px] not-italic relative shrink-0 text-[14px] text-white whitespace-nowrap">Publish</p>
+      </div>
+      <div className="-translate-x-1/2 -translate-y-1/2 absolute left-[calc(50%+804.5px)] overflow-clip size-[18px] top-[calc(50%-3.5px)]" data-name="Close">
+        <Colose />
+      </div>
+      <div className="absolute content-stretch flex gap-px h-[26px] items-center justify-center left-[1472px] py-[10px] top-[9.5px]" data-name="Save">
+        <Icon />
+        <Arrow />
+      </div>
+      <UndoAndRedo />
+      <div className="absolute bottom-[8.5px] left-[1427px] size-[27px]" data-name="Reset">
+        <div className="absolute inset-[20%_20.06%_20%_20%]" data-name="Reset">
+          <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 16.1846 16.2002">
+            <path d={svgPaths.p3660d700} fill="var(--fill-0, #29313B)" id="Reset" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function EditingModeToolbarIndicator1() {
+  return <div className="absolute right-[713px] size-[11px] top-[20px]" data-name="Editing Mode - Toolbar Indicator" />;
+}
+
+function TextWithCursor() {
+  return (
+    <div className="content-stretch flex items-end relative shrink-0" data-name="Text with Cursor">
+      <div className="h-[17px] relative shrink-0 w-[0.001px]" data-name="Height Spacer" />
+      <div className="[word-break:break-word] flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#181825] text-[12px] whitespace-nowrap">
+        <p className="leading-[16px]">Baseline Agent</p>
+      </div>
+    </div>
+  );
+}
+
+function DropdownInput() {
+  return (
+    <div className="absolute bg-[rgba(153,180,208,0.1)] content-stretch flex h-[26px] items-center justify-between left-[32px] overflow-clip px-[10px] py-[11px] rounded-[6px] top-[10px] w-[134px]" data-name="Dropdown Input">
+      <TextWithCursor />
+      <div className="overflow-clip relative shrink-0 size-[18px]" data-name="Arrows">
+        <div className="absolute bottom-[38.89%] flex items-center justify-center left-1/4 right-1/4 top-[38.89%]" style={{ containerType: "size" }}>
+          <div className="-rotate-90 flex-none h-[100cqw] w-[100cqh]">
+            <div className="relative size-full">
+              <div className="absolute inset-[-5.56%_-12.5%]">
+                <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 5.00001 10">
+                  <path d={svgPaths.p1f3e7d80} id="Line 713" stroke="var(--stroke-0, #181825)" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function WebLibraryHomeToolbar() {
+  return (
+    <div className="absolute bg-white h-[46px] left-0 overflow-clip shadow-[0px_2px_4px_0px_rgba(0,0,0,0.14)] top-0 w-[1663px]" data-name="Web/Library Home Toolbar">
+      <div className="-translate-x-1/2 -translate-y-1/2 [word-break:break-word] absolute flex flex-col font-['SF_Pro_Text:Regular',sans-serif] justify-center leading-[0] left-[863.5px] not-italic text-[#29313b] text-[18px] text-center top-[26px] whitespace-nowrap">
+        <p className="leading-[20px]">Baseline Agent</p>
+      </div>
+      <RIghtSideIcons />
+      <EditingModeToolbarIndicator1 />
+      <DropdownInput />
+      <div className="absolute bg-[#0e6ff9] content-stretch flex h-[15px] items-center justify-center left-[745px] px-[8px] py-[2px] rounded-[4px] top-[18px] w-[50px]" data-name="Specific Capsule">
+        <div className="[word-break:break-word] flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-[0] not-italic relative shrink-0 text-[10px] text-white uppercase whitespace-nowrap">
+          <p className="leading-[16px]">ACTIVE</p>
+        </div>
+      </div>
+      <div className="absolute bg-[#6ea9fb] content-stretch flex gap-[10px] h-[26px] items-center justify-center left-[1341px] max-h-[26px] min-h-[26px] min-w-[60px] overflow-clip px-[12px] py-[4px] rounded-[6px] top-[9px]" data-name="Button">
+        <p className="[word-break:break-word] font-['SF_Pro_Text:Regular',sans-serif] leading-[16px] not-italic relative shrink-0 text-[14px] text-white whitespace-nowrap">Run All</p>
+      </div>
+    </div>
+  );
+}
+
+function FocusRing() {
+  return (
+    <div className="absolute h-[30px] left-[-2px] right-[-2px] rounded-[8px] top-[-2px]" data-name=".Focus - ring">
+      <div aria-hidden className="absolute border-2 border-[#0d64e0] border-solid inset-[-2px] pointer-events-none rounded-[10px]" />
+    </div>
+  );
+}
+
+function Button() {
+  return (
+    <div className="absolute content-stretch flex gap-[10px] h-[26px] items-center justify-center left-[586px] max-h-[26px] min-h-[26px] min-w-[60px] px-[12px] py-[4px] rounded-[6px] top-[979px]" data-name="Button">
+      <FocusRing />
+      <p className="[word-break:break-word] font-['Inter:Regular',sans-serif] font-normal leading-[16px] not-italic relative shrink-0 text-[#0e6ff9] text-[14px] whitespace-nowrap">+ Add Question</p>
+    </div>
+  );
+}
+
+function Dividers() {
+  return (
+    <div className="absolute h-[631.635px] left-[42.88px] top-[169px] w-[1180.765px]" data-name="dividers">
+      <div className="absolute inset-[-0.16%_0_0_0]">
+        <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1180.77 632.635">
+          <g id="dividers">
+            <line id="Line 10" stroke="var(--stroke-0, #ECECEC)" strokeOpacity="0.44" x2="1180.77" y1="0.5" y2="0.5" />
+            <line id="Line 11" stroke="var(--stroke-0, #ECECEC)" strokeOpacity="0.44" x2="1180.77" y1="442.645" y2="442.645" />
+            <line id="Line 9" stroke="var(--stroke-0, #ECECEC)" strokeOpacity="0.44" x2="1180.77" y1="505.808" y2="505.808" />
+            <line id="Line 12" stroke="var(--stroke-0, #ECECEC)" strokeOpacity="0.44" x2="1180.77" y1="568.972" y2="568.972" />
+            <line id="Line 13" stroke="var(--stroke-0, #ECECEC)" strokeOpacity="0.44" x2="1180.77" y1="632.135" y2="632.135" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function Group() {
+  return (
+    <div className="absolute contents left-[956.98px] top-[189px]">
+      <div className="absolute bg-[rgba(238,176,118,0.48)] h-[23.76px] left-[956.98px] rounded-[8px] top-[189px] w-[59.703px]" />
+      <div className="[word-break:break-word] absolute font-['SF_Pro_Text:Semibold',sans-serif] h-[18.81px] leading-[0] left-[962.95px] not-italic text-[#925a25] text-[12px] top-[190.98px] tracking-[-0.132px] w-[50.747px] whitespace-pre-wrap">
+        <p className="leading-[1.5] mb-0">Flagged</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5]">​</p>
+      </div>
+    </div>
+  );
+}
+
+function Group1() {
+  return (
+    <div className="absolute contents left-[957px] top-[633px]">
+      <div className="absolute bg-[rgba(152,225,132,0.4)] h-[23.76px] left-[957px] rounded-[8px] top-[633px] w-[68.658px]" />
+      <div className="[word-break:break-word] absolute font-['SF_Pro_Text:Semibold',sans-serif] h-[18.81px] leading-[0] left-[963.97px] not-italic text-[#285f19] text-[12px] top-[634.98px] tracking-[-0.132px] w-[54.727px] whitespace-pre-wrap">
+        <p className="leading-[1.5] mb-0">Expected</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5]">​</p>
+      </div>
+    </div>
+  );
+}
+
+function Group2() {
+  return (
+    <div className="absolute contents left-[957px] top-[757.74px]">
+      <div className="absolute bg-[rgba(152,225,132,0.4)] h-[23.76px] left-[957px] rounded-[8px] top-[757.74px] w-[68.658px]" />
+      <div className="[word-break:break-word] absolute font-['SF_Pro_Text:Semibold',sans-serif] h-[18.81px] leading-[0] left-[963.97px] not-italic text-[#285f19] text-[12px] top-[759.72px] tracking-[-0.132px] w-[54.727px] whitespace-pre-wrap">
+        <p className="leading-[1.5] mb-0">Expected</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5]">​</p>
+      </div>
+    </div>
+  );
+}
+
+function Group3() {
+  return (
+    <div className="absolute contents left-[957px] top-[820.11px]">
+      <div className="absolute bg-[rgba(152,225,132,0.4)] h-[23.76px] left-[957px] rounded-[8px] top-[820.11px] w-[68.658px]" />
+      <div className="[word-break:break-word] absolute font-['SF_Pro_Text:Semibold',sans-serif] h-[18.81px] leading-[0] left-[963.97px] not-italic text-[#285f19] text-[12px] top-[822.09px] tracking-[-0.132px] w-[54.727px] whitespace-pre-wrap">
+        <p className="leading-[1.5] mb-0">Expected</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5]">​</p>
+      </div>
+    </div>
+  );
+}
+
+function Group4() {
+  return (
+    <div className="absolute contents left-[957px] top-[888.42px]">
+      <div className="absolute bg-[rgba(152,225,132,0.4)] h-[23.76px] left-[957px] rounded-[8px] top-[888.42px] w-[68.658px]" />
+      <div className="[word-break:break-word] absolute font-['SF_Pro_Text:Semibold',sans-serif] h-[18.81px] leading-[0] left-[963.97px] not-italic text-[#285f19] text-[12px] top-[890.4px] tracking-[-0.132px] w-[54.727px] whitespace-pre-wrap">
+        <p className="leading-[1.5] mb-0">Expected</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5]">​</p>
+      </div>
+    </div>
+  );
+}
+
+function Group5() {
+  return (
+    <div className="absolute contents left-[957px] top-[956.74px]">
+      <div className="absolute bg-[rgba(152,225,132,0.4)] h-[23.76px] left-[957px] rounded-[8px] top-[956.74px] w-[68.658px]" />
+      <div className="[word-break:break-word] absolute font-['SF_Pro_Text:Semibold',sans-serif] h-[18.81px] leading-[0] left-[963.97px] not-italic text-[#285f19] text-[12px] top-[958.72px] tracking-[-0.132px] w-[54.727px] whitespace-pre-wrap">
+        <p className="leading-[1.5] mb-0">Expected</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5]">​</p>
+      </div>
+    </div>
+  );
+}
+
+function Group6() {
+  return (
+    <div className="absolute contents left-[957px] top-[1141.87px]">
+      <div className="absolute bg-[rgba(152,225,132,0.22)] h-[23.76px] left-[957px] rounded-[8px] top-[1141.87px] w-[68.658px]" />
+      <div className="[word-break:break-word] absolute font-['SF_Pro_Text:Semibold',sans-serif] h-[18.81px] leading-[0] left-[963.97px] not-italic text-[12px] text-[rgba(40,95,25,0.69)] top-[1143.85px] tracking-[-0.132px] w-[54.727px] whitespace-pre-wrap">
+        <p className="leading-[1.5] mb-0">Expected</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5]">​</p>
+      </div>
+    </div>
+  );
+}
+
+function Group7() {
+  return (
+    <div className="absolute contents left-[957px] top-[1080.49px]">
+      <div className="absolute bg-[rgba(152,225,132,0.4)] h-[23.76px] left-[957px] rounded-[8px] top-[1080.49px] w-[68.658px]" />
+      <div className="[word-break:break-word] absolute font-['SF_Pro_Text:Semibold',sans-serif] h-[18.81px] leading-[0] left-[963.97px] not-italic text-[#285f19] text-[12px] top-[1082.47px] tracking-[-0.132px] w-[54.727px] whitespace-pre-wrap">
+        <p className="leading-[1.5] mb-0">Expected</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5]">​</p>
+      </div>
+    </div>
+  );
+}
+
+function Group9() {
+  return (
+    <div className="absolute contents left-[961.98px] top-[693.39px]">
+      <div className="absolute bg-[rgba(238,176,118,0.48)] h-[23.76px] left-[961.98px] rounded-[8px] top-[693.39px] w-[59.703px]" />
+      <div className="[word-break:break-word] absolute font-['SF_Pro_Text:Semibold',sans-serif] h-[18.81px] leading-[0] left-[967.95px] not-italic text-[#925a25] text-[12px] top-[695.37px] tracking-[-0.132px] w-[50.747px] whitespace-pre-wrap">
+        <p className="leading-[1.5] mb-0">Flagged</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5]">​</p>
+      </div>
+    </div>
+  );
+}
+
+function Group8() {
+  return (
+    <div className="absolute contents left-[959.99px] top-[1015.63px]">
+      <div className="absolute bg-[rgba(238,176,118,0.48)] h-[23.76px] left-[959.99px] rounded-[8px] top-[1015.63px] w-[59.703px]" />
+      <div className="[word-break:break-word] absolute font-['SF_Pro_Text:Semibold',sans-serif] h-[18.81px] leading-[0] left-[965.96px] not-italic text-[#925a25] text-[12px] top-[1017.61px] tracking-[-0.132px] w-[50.747px] whitespace-pre-wrap">
+        <p className="leading-[1.5] mb-0">Flagged</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5]">​</p>
+      </div>
+    </div>
+  );
+}
+
+function StatusBadges() {
+  return (
+    <div className="absolute contents left-[956.98px] top-[189px]" data-name="status badges">
+      <Group />
+      <Group1 />
+      <Group2 />
+      <Group3 />
+      <Group4 />
+      <Group5 />
+      <Group6 />
+      <Group7 />
+      <Group9 />
+      <Group8 />
+    </div>
+  );
+}
+
+function Accordion() {
+  return (
+    <div className="absolute h-[10.661px] left-[1168.28px] top-[198px] w-[22.886px]" data-name="accordion">
+      <div className="absolute inset-[-6.8%_0_0_0]">
+        <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 22.886 11.3858">
+          <g id="accordion">
+            <line id="Line 932" stroke="var(--stroke-0, black)" transform="matrix(0.731663 0.681666 -0.689048 0.724716 3.75579e-05 0.724716)" x2="15.6397" y1="-0.5" y2="-0.5" />
+            <line id="Line 933" stroke="var(--stroke-0, black)" transform="matrix(-0.731663 0.681666 0.689048 0.724716 22.886 0.724716)" x2="15.6397" y1="-0.5" y2="-0.5" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function Accordion1() {
+  return (
+    <div className="absolute h-[10.661px] left-[1168.28px] top-[959.12px] w-[22.886px]" data-name="accordion">
+      <div className="absolute inset-[-6.8%_0_0_0]">
+        <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 22.886 11.3858">
+          <g id="accordion">
+            <line id="Line 932" stroke="var(--stroke-0, black)" transform="matrix(0.731663 0.681666 -0.689048 0.724716 3.75579e-05 0.724716)" x2="15.6397" y1="-0.5" y2="-0.5" />
+            <line id="Line 933" stroke="var(--stroke-0, black)" transform="matrix(-0.731663 0.681666 0.689048 0.724716 22.886 0.724716)" x2="15.6397" y1="-0.5" y2="-0.5" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function Accordion2() {
+  return (
+    <div className="absolute h-[10.661px] left-[1168.28px] top-[639px] w-[22.886px]" data-name="accordion">
+      <div className="absolute inset-[-6.8%_0_0_0]">
+        <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 22.886 11.3858">
+          <g id="accordion">
+            <line id="Line 932" stroke="var(--stroke-0, black)" transform="matrix(0.731663 0.681666 -0.689048 0.724716 3.75579e-05 0.724716)" x2="15.6397" y1="-0.5" y2="-0.5" />
+            <line id="Line 933" stroke="var(--stroke-0, black)" transform="matrix(-0.731663 0.681666 0.689048 0.724716 22.886 0.724716)" x2="15.6397" y1="-0.5" y2="-0.5" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function Accordion3() {
+  return (
+    <div className="absolute h-[10.661px] left-[1168.28px] top-[701.05px] w-[22.886px]" data-name="accordion">
+      <div className="absolute inset-[-6.8%_0_0_0]">
+        <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 22.886 11.3858">
+          <g id="accordion">
+            <line id="Line 932" stroke="var(--stroke-0, black)" transform="matrix(0.731663 0.681666 -0.689048 0.724716 3.75579e-05 0.724716)" x2="15.6397" y1="-0.5" y2="-0.5" />
+            <line id="Line 933" stroke="var(--stroke-0, black)" transform="matrix(-0.731663 0.681666 0.689048 0.724716 22.886 0.724716)" x2="15.6397" y1="-0.5" y2="-0.5" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function Accordion4() {
+  return (
+    <div className="absolute h-[10.661px] left-[1168.28px] top-[763.11px] w-[22.886px]" data-name="accordion">
+      <div className="absolute inset-[-6.8%_0_0_0]">
+        <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 22.886 11.3858">
+          <g id="accordion">
+            <line id="Line 932" stroke="var(--stroke-0, black)" transform="matrix(0.731663 0.681666 -0.689048 0.724716 3.75579e-05 0.724716)" x2="15.6397" y1="-0.5" y2="-0.5" />
+            <line id="Line 933" stroke="var(--stroke-0, black)" transform="matrix(-0.731663 0.681666 0.689048 0.724716 22.886 0.724716)" x2="15.6397" y1="-0.5" y2="-0.5" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function Accordion5() {
+  return (
+    <div className="absolute h-[10.661px] left-[1168.28px] top-[825.16px] w-[22.886px]" data-name="accordion">
+      <div className="absolute inset-[-6.8%_0_0_0]">
+        <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 22.886 11.3858">
+          <g id="accordion">
+            <line id="Line 932" stroke="var(--stroke-0, black)" transform="matrix(0.731663 0.681666 -0.689048 0.724716 3.75579e-05 0.724716)" x2="15.6397" y1="-0.5" y2="-0.5" />
+            <line id="Line 933" stroke="var(--stroke-0, black)" transform="matrix(-0.731663 0.681666 0.689048 0.724716 22.886 0.724716)" x2="15.6397" y1="-0.5" y2="-0.5" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function Accordion6() {
+  return (
+    <div className="absolute h-[10.661px] left-[1168.28px] top-[896.08px] w-[22.886px]" data-name="accordion">
+      <div className="absolute inset-[-6.8%_0_0_0]">
+        <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 22.886 11.3858">
+          <g id="accordion">
+            <line id="Line 932" stroke="var(--stroke-0, black)" transform="matrix(0.731663 0.681666 -0.689048 0.724716 3.75579e-05 0.724716)" x2="15.6397" y1="-0.5" y2="-0.5" />
+            <line id="Line 933" stroke="var(--stroke-0, black)" transform="matrix(-0.731663 0.681666 0.689048 0.724716 22.886 0.724716)" x2="15.6397" y1="-0.5" y2="-0.5" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function Accordion7() {
+  return (
+    <div className="absolute h-[10.661px] left-[1168.28px] top-[1021.18px] w-[22.886px]" data-name="accordion">
+      <div className="absolute inset-[-6.8%_0_0_0]">
+        <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 22.886 11.3858">
+          <g id="accordion">
+            <line id="Line 932" stroke="var(--stroke-0, black)" transform="matrix(0.731663 0.681666 -0.689048 0.724716 3.75579e-05 0.724716)" x2="15.6397" y1="-0.5" y2="-0.5" />
+            <line id="Line 933" stroke="var(--stroke-0, black)" transform="matrix(-0.731663 0.681666 0.689048 0.724716 22.886 0.724716)" x2="15.6397" y1="-0.5" y2="-0.5" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function Accordion8() {
+  return (
+    <div className="absolute h-[10.661px] left-[1168.28px] top-[1083.23px] w-[22.886px]" data-name="accordion">
+      <div className="absolute inset-[-6.8%_0_0_0]">
+        <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 22.886 11.3858">
+          <g id="accordion">
+            <line id="Line 932" stroke="var(--stroke-0, black)" transform="matrix(0.731663 0.681666 -0.689048 0.724716 3.75579e-05 0.724716)" x2="15.6397" y1="-0.5" y2="-0.5" />
+            <line id="Line 933" stroke="var(--stroke-0, black)" transform="matrix(-0.731663 0.681666 0.689048 0.724716 22.886 0.724716)" x2="15.6397" y1="-0.5" y2="-0.5" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function Accordion9() {
+  return (
+    <div className="absolute h-[10.661px] left-[1168.28px] top-[1145.28px] w-[22.886px]" data-name="accordion">
+      <div className="absolute inset-[-6.8%_0_0_0]">
+        <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 22.886 11.3858">
+          <g id="accordion">
+            <line id="Line 932" stroke="var(--stroke-0, black)" strokeOpacity="0.51" transform="matrix(0.731663 0.681666 -0.689048 0.724716 3.75579e-05 0.724716)" x2="15.6397" y1="-0.5" y2="-0.5" />
+            <line id="Line 933" stroke="var(--stroke-0, black)" strokeOpacity="0.51" transform="matrix(-0.731663 0.681666 0.689048 0.724716 22.886 0.724716)" x2="15.6397" y1="-0.5" y2="-0.5" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function Accordions() {
+  return (
+    <div className="absolute contents left-[1168.28px] top-[198px]" data-name="accordions">
+      <Accordion />
+      <Accordion1 />
+      <Accordion2 />
+      <Accordion3 />
+      <Accordion4 />
+      <Accordion5 />
+      <Accordion6 />
+      <Accordion7 />
+      <Accordion8 />
+      <Accordion9 />
+    </div>
+  );
+}
+
+function TextBody() {
+  return (
+    <div className="absolute contents left-[19px] top-[139px]" data-name="text body">
+      <Dividers />
+      <p className="[word-break:break-word] absolute font-['SF_Pro_Text:Semibold',sans-serif] leading-[18px] left-[35.07px] not-italic text-[#464646] text-[12px] top-[139px] tracking-[0.24px] w-[87.363px]">QUESTIONS</p>
+      <p className="-translate-x-1/2 [word-break:break-word] absolute font-['SF_Pro_Text:Semibold',sans-serif] leading-[18px] left-[986.33px] not-italic text-[#464646] text-[12px] text-center top-[139px] tracking-[0.24px] w-[48.757px]">STATUS</p>
+      <div className="[word-break:break-word] absolute font-['SF_Pro_Text:Regular',sans-serif] leading-[0] left-[36.91px] not-italic text-[#2d2d2d] text-[14px] top-[187px] tracking-[-0.154px] w-[828.872px] whitespace-pre-wrap">
+        <p className="font-['SF_Pro_Text:Medium',sans-serif] leading-[1.5] mb-0">1. What was the total revenue generated from Order #105?</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="font-['SF_Pro_Text:Medium',sans-serif] leading-[1.5] mb-0">2. How many items are currently stocked in the Texas warehouse that are flagged for order?</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="font-['SF_Pro_Text:Medium',sans-serif] leading-[1.5] mb-0">3. How many Shirts did we sell yesterday?</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="font-['SF_Pro_Text:Medium',sans-serif] leading-[1.5] mb-0">4. What is our standard return policy for damaged items?</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="font-['SF_Pro_Text:Medium',sans-serif] leading-[1.5] mb-0 text-[rgba(45,45,45,0.57)]">5. Who are the primary customers that are buying sporting goods?</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="font-['SF_Pro_Text:Medium',sans-serif] leading-[1.5] mb-0">6. What is the average customer review score for Winter Jackets? Give me the breakdown by different...</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="font-['SF_Pro_Text:Medium',sans-serif] leading-[1.5] mb-0">7. What is the most expensive item currently in the catalog?</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="font-['SF_Pro_Text:Medium',sans-serif] leading-[1.5] mb-0">8. Did order #108 ship out on time?</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="font-['SF_Pro_Text:Medium',sans-serif] leading-[1.5] mb-0">9. Create a line graph of revenue across Q2 sales.</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="leading-[1.5] mb-0">​</p>
+        <p className="font-['SF_Pro_Text:Medium',sans-serif] leading-[1.5]">10. What is the most popular item that is listed under accessories and has been purchased in at least..</p>
+      </div>
+      <StatusBadges />
+      <div className="absolute h-[11px] left-[19px] top-[192px] w-[10.945px]">
+        <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 10.9455 11">
+          <ellipse cx="5.47274" cy="5.5" fill="var(--fill-0, #EEB076)" id="Ellipse 1" rx="5.47274" ry="5.5" />
+        </svg>
+      </div>
+      <Accordions />
+      <div className="absolute h-[11px] left-[19px] top-[695px] w-[10.945px]">
+        <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 10.9455 11">
+          <ellipse cx="5.47274" cy="5.5" fill="var(--fill-0, #EEB076)" id="Ellipse 1" rx="5.47274" ry="5.5" />
+        </svg>
+      </div>
+      <div className="absolute h-[11px] left-[19px] top-[884px] w-[10.945px]">
+        <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 10.9455 11">
+          <ellipse cx="5.47274" cy="5.5" fill="var(--fill-0, #EEB076)" id="Ellipse 1" rx="5.47274" ry="5.5" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function RecommendationCards() {
+  return (
+    <div className="[word-break:break-word] absolute bg-[#f4f7fa] content-stretch drop-shadow-[0px_1px_1px_rgba(41,49,59,0.1)] flex flex-col gap-[6px] h-[98px] items-start leading-[20px] left-[24px] not-italic pl-[13px] pr-[12px] py-[10px] rounded-[8px] top-[16px] w-[1193px]" data-name="Recommendation Cards">
+      <p className="font-['SF_Pro_Text:Semibold',sans-serif] h-[20px] relative shrink-0 text-[#464646] text-[12px] w-[105px]">AI SUMMARY</p>
+      <p className="font-['SF_Pro_Text:Regular',sans-serif] h-[53px] min-w-full relative shrink-0 text-[14px] text-black w-[min-content]">{`Agent accuracy drops on complex queries due to calculation omissions, such as ignoring shipping fees, and semantic category confusion. Furthermore, the agent struggles significantly with output consistency, frequently returning casual shorthand or unformatted values instead of adhering to strict reporting standards. `}</p>
+    </div>
+  );
+}
+
+function AgentAnswerPanel() {
+  return (
+    <div className="absolute contents left-[30px] top-[237px]" data-name="agent answer panel">
+      <div className="absolute bg-[rgba(238,176,118,0.1)] border border-[rgba(238,176,118,0.32)] border-solid h-[334px] left-[30px] rounded-[8px] top-[237px] w-[1161px]" />
+      <p className="[word-break:break-word] absolute font-['SF_Pro_Text:Regular',sans-serif] leading-[18px] left-[1069px] not-italic text-[#0d64e0] text-[12px] top-[247px] w-[143px]">{`Inspect Question >`}</p>
+      <div className="[word-break:break-word] absolute font-['SF_Pro_Text:Regular',sans-serif] h-[17px] leading-[0] left-[61px] not-italic text-[0px] text-black top-[254px] tracking-[-0.176px] w-[997px] whitespace-pre-wrap">
+        <p className="mb-0">
+          <span className="font-['SF_Pro_Text:Semibold',sans-serif] leading-[1.5] text-[#7b7b7b] text-[12px]">AGENT ANSWER</span>
+          <span className="font-['SF_Pro_Text:Regular',sans-serif] leading-[1.5] text-[#2d2d2d] text-[14px]">
+            <br aria-hidden />
+            <br aria-hidden />
+          </span>
+        </p>
+        <p className="leading-[1.5] text-[16px]">​</p>
+      </div>
+      <div className="[word-break:break-word] absolute font-['SF_Pro_Text:Regular',sans-serif] h-[257px] leading-[0] left-[61px] not-italic text-[0px] text-black top-[286px] tracking-[-0.176px] w-[997px]">
+        <p className="mb-0 text-[#2d2d2d] text-[14px] whitespace-pre-wrap">
+          <span className="font-['SF_Pro_Text:Regular',sans-serif] leading-[1.5]">{`The total revenue generated from Order #105 was `}</span>
+          <span className="font-['SF_Pro_Text:Bold',sans-serif] leading-[1.5]">$50.00</span>
+          <span className="font-['SF_Pro_Text:Regular',sans-serif] leading-[1.5]">{` on a pair of `}</span>
+          <span className="font-['SF_Pro_Text:Bold',sans-serif] leading-[1.5]">{`boots. `}</span>
+          <span className="font-['SF_Pro_Text:Regular',sans-serif] leading-[1.5]">This took place on June 21st, 2026 and the order successfully shipped. Here are a few key insights about this one order:</span>
+        </p>
+        <p className="leading-[1.5] mb-0 text-[14px] whitespace-pre-wrap">​</p>
+        <ul className="leading-[1.5] list-disc text-[14px]">
+          <li className="mb-0 ms-[calc(var(--list-marker-font-size,0)*1.5*1)]">
+            <span className="font-['SF_Pro_Text:Regular',sans-serif]">{`this item has been sold in `}</span>
+            <span className="font-['SF_Pro_Text:Bold',sans-serif]">25</span>
+            <span className="font-['SF_Pro_Text:Regular',sans-serif]">{` different orders - it must be popular!`}</span>
+          </li>
+          <li className="ms-[calc(var(--list-marker-font-size,0)*1.5*1)]">
+            <span className="font-['SF_Pro_Text:Regular',sans-serif]">{`Orders typically holding `}</span>
+            <span className="font-['SF_Pro_Text:Bold',sans-serif]">boots</span>
+            <span className="font-['SF_Pro_Text:Regular',sans-serif]">{` will also hold `}</span>
+            <span className="font-['SF_Pro_Text:Bold',sans-serif]">gloves</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+function Frame10() {
+  return (
+    <div className="content-stretch flex gap-[5px] items-center relative shrink-0 w-[74px]">
+      <div className="[word-break:break-word] flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold justify-center leading-[0] not-italic relative shrink-0 text-[#0e6ff9] text-[12px] text-right whitespace-nowrap">
+        <p className="leading-[22px]">Insights</p>
+      </div>
+    </div>
+  );
+}
+
+function Line1() {
+  return (
+    <div className="h-0 relative shrink-0 w-[57px]">
+      <div className="absolute inset-[-3px_0_0_0]">
+        <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 57 3">
+          <g id="Line 727">
+            <line id="Line 726" stroke="var(--stroke-0, #0E6FF9)" strokeWidth="3" x2="57" y1="1.5" y2="1.5" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function TabItem2() {
+  return (
+    <div className="content-stretch flex flex-col gap-[12px] h-[34px] items-start relative shrink-0 w-[57px]" data-name="Tab Item">
+      <Frame10 />
+      <Line1 />
+    </div>
+  );
+}
+
+function Group11() {
+  return (
+    <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0">
+      <div className="[word-break:break-word] col-1 flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center ml-0 mt-0 not-italic relative row-1 text-[#727679] text-[12px] whitespace-nowrap">
+        <p className="leading-[22px]">Expected Answer</p>
+      </div>
+    </div>
+  );
+}
+
+function Frame12() {
+  return (
+    <div className="content-stretch flex items-center relative shrink-0 w-[73px]">
+      <Group11 />
+    </div>
+  );
+}
+
+function Tab1() {
+  return (
+    <div className="content-stretch flex gap-[4px] h-[34px] items-center relative shrink-0 w-full" data-name="Tab 1">
+      <TabItem2 />
+      <div className="content-stretch flex flex-col gap-[12px] h-[34px] items-start relative shrink-0 w-[111px]" data-name="Tab Item">
+        <Frame12 />
+      </div>
+    </div>
+  );
+}
+
+function TabBar1() {
+  return (
+    <div className="absolute content-stretch flex flex-col h-[28.171px] items-center left-[63.38px] top-[425.77px] w-[171.854px]" data-name="Tab Bar">
+      <Tab1 />
+    </div>
+  );
+}
+
+function ExpAnswerPanel() {
+  return (
+    <div className="absolute contents left-[46px] top-[415px]" data-name="exp answer panel">
+      <div className="absolute bg-[#f7faff] border border-[#cbd2de] border-solid h-[145px] left-[46px] rounded-[8px] top-[415px] w-[1129px]" />
+      <p className="[word-break:break-word] absolute font-['SF_Pro_Text:Regular',sans-serif] h-[65px] leading-[1.5] left-[65.32px] not-italic text-[#2d2d2d] text-[14px] top-[480px] tracking-[-0.154px] w-[1089.403px]">{`The agent answer is based off of an interpretation that differs from the expected answer. The final revenue calculated by the agent didn’t include shipping fee, but is a sum of the products associated with the order. `}</p>
+      <TabBar1 />
+    </div>
+  );
+}
+
+function Frame14() {
+  return (
+    <div className="absolute h-[830px] left-0 overflow-x-clip overflow-y-auto top-[93px] w-[1251px]">
+      <TextBody />
+      <RecommendationCards />
+      <AgentAnswerPanel />
+      <ExpAnswerPanel />
+      <div className="absolute h-[204px] left-[1242px] top-[14px] w-[4px]" data-name="Scrollbar">
+        <div className="absolute bg-[rgba(24,24,37,0.2)] inset-0 rounded-[6px]" data-name="Scrollbar" />
+      </div>
+    </div>
+  );
+}
+
+function Progress() {
+  return (
+    <div className="absolute contents left-[994px] top-[77px]" data-name="progress">
+      <div className="absolute flex h-[6px] items-center justify-center left-[994px] top-[77px] w-[182px]">
+        <div className="-scale-y-100 flex-none">
+          <div className="bg-[#d9d9d9] h-[6px] relative rounded-[2px] w-[182px]" />
+        </div>
+      </div>
+      <div className="absolute flex h-[6px] items-center justify-center left-[994px] top-[77px] w-[130.667px]">
+        <div className="-scale-y-100 flex-none">
+          <div className="bg-[#0d64e0] h-[6px] relative rounded-[2px] w-[130.667px]" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Kpi() {
+  return (
+    <div className="absolute contents left-[963px] top-[70px]" data-name="KPI">
+      <Progress />
+      <p className="[word-break:break-word] absolute font-['SF_Pro_Text:Regular',sans-serif] leading-[18px] left-[1179px] not-italic text-[#2d2d2d] text-[12px] top-[70px] whitespace-nowrap">70%</p>
+      <p className="[word-break:break-word] absolute font-['SF_Pro_Text:Regular',sans-serif] leading-[18px] left-[963px] not-italic text-[#2d2d2d] text-[12px] top-[70px] whitespace-nowrap">7/10</p>
+    </div>
+  );
+}
+
+function QuestionPanel() {
+  return (
+    <div className="-translate-x-1/2 -translate-y-1/2 absolute bg-white h-[894px] left-[calc(50%-189px)] overflow-clip rounded-[8px] shadow-[0px_2px_15px_0px_rgba(0,0,0,0.15)] top-[calc(50%+3px)] w-[1251px]" data-name="Question Panel">
+      <Frame14 />
+      <div className="absolute h-0 left-[24px] top-[40.5px] w-[1200.008px]">
+        <div className="absolute inset-[-1px_0_0_0]">
+          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1200.01 1">
+            <line id="Line 12" stroke="var(--stroke-0, #D1D1D1)" x2="1200.01" y1="0.5" y2="0.5" />
+          </svg>
+        </div>
+      </div>
+      <div className="[word-break:break-word] absolute font-['SF_Pro_Text:Semibold',sans-serif] leading-[0] left-[37px] not-italic text-[0px] text-black top-[52px] tracking-[0.24px] whitespace-nowrap">
+        <p className="mb-0 text-[#464646] text-[12px] whitespace-pre">
+          <span className="font-['SF_Pro_Text:Semibold',sans-serif] leading-[18px]">LAST RUN</span>
+          <span className="font-['SF_Pro_Text:Regular',sans-serif] leading-[18px]">{` `}</span>
+        </p>
+        <p className="font-['SF_Pro_Text:Regular',sans-serif] whitespace-pre">
+          <span className="leading-[18px] text-[12px] text-[rgba(45,45,45,0.69)]">{`6/14/26 3:59PM `}</span>
+          <span className="leading-[18px] text-[12px] text-[rgba(159,159,159,0.87)]">(3d ago)</span>
+          <span className="leading-[18px] text-[14px] text-[rgba(45,45,45,0.69)]">{` `}</span>
+        </p>
+      </div>
+      <Kpi />
+      <p className="[word-break:break-word] absolute font-['SF_Pro_Text:Semibold',sans-serif] leading-[18px] left-[24px] not-italic text-[#2d2d2d] text-[16px] top-[17px] tracking-[0.32px] whitespace-nowrap">Test Results</p>
+      <p className="[word-break:break-word] absolute font-['SF_Pro_Text:Semibold',sans-serif] leading-[18px] left-[963px] not-italic text-[#464646] text-[12px] top-[52px] tracking-[0.24px] whitespace-nowrap">ACCURACY</p>
+    </div>
+  );
+}
+
+export default function MacroViewExpanded() {
+  return (
+    <div className="bg-[#fafafa] relative size-full" data-name="Macro View Expanded">
+      <EditingModeToolbarIndicator />
+      <div className="absolute bg-[rgba(41,49,59,0.4)] bottom-1/4 left-[75.71%] right-[23.93%] rounded-[6px] top-[65.23%]" data-name="Scrollbar" />
+      <AiSuggestionsV4Micro />
+      <WebLibraryHomeToolbar />
+      <Button />
+      <QuestionPanel />
+    </div>
+  );
+}
