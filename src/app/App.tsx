@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import MacroView from "@/imports/MacroViewV2/index";
 import MicroView from "@/imports/MicroView/index";
+import CompareVersions from "@/imports/CompareVersions/index";
 
 // ─── Right panel – Column Descriptions overlay ───────────────────────────────
 // Matches MacroViewV2 AiSuggestionsV4Micro exactly: left-[1277px] top-[68px] w-[379px] h-[700px]
@@ -734,7 +735,7 @@ export default function App() {
   const rootRef = useRef<HTMLDivElement>(null);
   const [expanded, setExpanded] = useState(false);
   const [rightTab, setRightTab] = useState<"custom" | "column">("custom");
-  const [view, setView] = useState<"macro" | "micro">("macro");
+  const [view, setView] = useState<"macro" | "micro" | "compare">("macro");
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   useEffect(() => {
@@ -773,6 +774,8 @@ export default function App() {
               style={{ position: "absolute", left: 326, top: 69, width: 160, height: 28, cursor: "pointer", zIndex: 50 }}
             />
           </>
+        ) : view === "compare" ? (
+          <CompareVersions />
         ) : (
           <>
             <MacroView />
@@ -818,13 +821,13 @@ export default function App() {
               zIndex: 21, overflow: "hidden",
             }}>
               {[
-                { label: "Baseline Agent", dividerAfter: false },
-                { label: "Version 2 Agent", dividerAfter: true },
-                { label: "Compare Versions", dividerAfter: false },
-              ].map(({ label, dividerAfter }, i) => (
+                { label: "Baseline Agent", dividerAfter: false, action: () => setView("macro") },
+                { label: "Version 2 Agent", dividerAfter: true, action: () => {} },
+                { label: "Compare Versions", dividerAfter: false, action: () => setView("compare") },
+              ].map(({ label, dividerAfter, action }, i) => (
                 <div key={i}>
                   <div
-                    onClick={() => setDropdownOpen(false)}
+                    onClick={() => { action(); setDropdownOpen(false); }}
                     style={{
                       height: 34, paddingLeft: 9, display: "flex", alignItems: "center",
                       cursor: "pointer", fontFamily: "system-ui,-apple-system,sans-serif",
@@ -845,8 +848,10 @@ export default function App() {
           </>
         )}
 
-        {/* Unified right panel — always rendered, covers both views' native panels */}
-        <UnifiedRightPanel tab={rightTab} onTabChange={setRightTab} view={view} />
+        {/* Unified right panel — shown on macro and micro views only */}
+        {view !== "compare" && (
+          <UnifiedRightPanel tab={rightTab} onTabChange={setRightTab} view={view} />
+        )}
       </div>
     </div>
   );
