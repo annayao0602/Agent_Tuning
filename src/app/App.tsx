@@ -3,6 +3,8 @@ import { motion } from "motion/react";
 import MacroView from "@/imports/MacroViewV2/index";
 import MicroView from "@/imports/MicroView/index";
 import CompareVersions from "@/imports/CompareVersions/index";
+import CompareVersions2 from "@/imports/CompareVersions-2/index";
+import CompareVersions4 from "@/imports/CompareVersions-4/index";
 
 // ─── Right panel – Column Descriptions overlay ───────────────────────────────
 // Matches MacroViewV2 AiSuggestionsV4Micro exactly: left-[1277px] top-[68px] w-[379px] h-[700px]
@@ -730,6 +732,156 @@ function UnifiedRightPanel({ tab, onTabChange, view }: { tab: "custom" | "column
   );
 }
 
+// ─── Compare Versions interactive overlay ────────────────────────────────────
+// Panel visual origin on canvas: left=17, top=68
+// Dropdown button positions (canvas-absolute):
+//   File:       left=240, top=194, w=224, h=35
+//   Left agent: left=240, top=266, w=224, h=34
+//   Right agent: left=569, top=266, w=223, h=34
+//
+// Each DropBtn lays a solid white backing (z=14) to fully occlude the static
+// base import's chevron, then draws its own button + single animated chevron
+// on top (z=15). This prevents the "duplicate icon" artifact.
+function CompareVersionsOverlay({
+  fileVal, setFileVal,
+  leftVal, setLeftVal,
+  rightVal, setRightVal,
+  compareRan, onRunComparison,
+}: {
+  fileVal: string; setFileVal: (v: string) => void;
+  leftVal: string; setLeftVal: (v: string) => void;
+  rightVal: string; setRightVal: (v: string) => void;
+  compareRan: boolean; onRunComparison: () => void;
+}) {
+  const sf = "system-ui,-apple-system,sans-serif";
+  const inter = "Inter,system-ui,sans-serif";
+  const [openMenu, setOpenMenu] = useState<"file" | "left" | "right" | null>(null);
+
+  const FILE_OPTIONS   = ["Set #1"];
+  const AGENT_OPTIONS  = ["Baseline Agent", "Version 2 Agent"];
+
+  // Down-pointing chevron V  (animates to ∧ when open via rotate:180)
+  const Chevron = ({ open }: { open: boolean }) => (
+    <motion.div
+      animate={{ rotate: open ? 180 : 0 }}
+      transition={{ duration: 0.22, ease: "easeInOut" }}
+      style={{ display: "flex", transformOrigin: "50% 50%", flexShrink: 0 }}
+    >
+      <svg width="11" height="7" viewBox="0 0 11 7" fill="none">
+        <path d="M1 1L5.5 6L10 1" stroke="#181825" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </motion.div>
+  );
+
+  function DropBtn({
+    id, left, top, width, height, value, placeholder, options, onSelect,
+  }: {
+    id: "file" | "left" | "right";
+    left: number; top: number; width: number; height: number;
+    value: string; placeholder: string; options: string[];
+    onSelect: (v: string) => void;
+  }) {
+    const isOpen = openMenu === id;
+    const hasValue = value !== placeholder;
+    return (
+      <>
+        {/* Solid white backing — fully occludes static base chevron */}
+        <div style={{
+          position: "absolute", left, top, width, height,
+          background: "white", borderRadius: 6, zIndex: 14,
+        }} />
+
+        {/* Interactive button with single animated chevron */}
+        <div
+          onClick={() => setOpenMenu(isOpen ? null : id)}
+          style={{
+            position: "absolute", left, top, width, height,
+            background: "rgba(153,180,208,0.10)", borderRadius: 6,
+            border: `1px solid ${(isOpen || hasValue) ? "#0e6ff9" : "transparent"}`,
+            display: "flex", alignItems: "center", justifyContent: "space-between",
+            padding: "0 9px", cursor: "pointer", zIndex: 15,
+            boxSizing: "border-box",
+          }}
+        >
+          <span style={{
+            fontFamily: inter, fontSize: 14, color: "#181825",
+            lineHeight: "18px", whiteSpace: "nowrap",
+          }}>
+            {value}
+          </span>
+          <Chevron open={isOpen} />
+        </div>
+
+        {/* Dropdown menu */}
+        {isOpen && (
+          <>
+            <div onClick={() => setOpenMenu(null)} style={{ position: "absolute", inset: 0, zIndex: 16 }} />
+            <div style={{
+              position: "absolute", left, top: top + height + 3,
+              width, background: "white", borderRadius: 8,
+              boxShadow: "0px 3px 5px rgba(24,24,37,0.2)",
+              padding: "6px 4px", zIndex: 17,
+            }}>
+              {options.map((opt) => (
+                <div
+                  key={opt}
+                  onClick={() => { onSelect(opt); setOpenMenu(null); }}
+                  style={{
+                    height: 34, paddingLeft: 12,
+                    display: "flex", alignItems: "center",
+                    cursor: "pointer", borderRadius: 4,
+                    fontFamily: sf, fontSize: 14, color: "#181825",
+                    lineHeight: "20px", whiteSpace: "nowrap",
+                  }}
+                  onMouseEnter={e => (e.currentTarget.style.background = "#f5f5f8")}
+                  onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
+                >
+                  {opt}
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+      </>
+    );
+  }
+
+  const allSelected = fileVal !== "Select File" && leftVal !== "--" && rightVal !== "--";
+  // "Run Comparison" button: panel-relative left=1075 top=95 → canvas (1092, 163)
+  const RUN_LEFT = 1092, RUN_TOP = 163, RUN_W = 140, RUN_H = 26;
+
+  return (
+    <>
+      <DropBtn id="file"  left={240} top={194} width={224} height={35} value={fileVal}  placeholder="Select File" options={FILE_OPTIONS}  onSelect={setFileVal}  />
+      <DropBtn id="left"  left={240} top={266} width={224} height={34} value={leftVal}  placeholder="--"          options={AGENT_OPTIONS} onSelect={setLeftVal}  />
+      <DropBtn id="right" left={569} top={266} width={223} height={34} value={rightVal} placeholder="--"          options={AGENT_OPTIONS} onSelect={setRightVal} />
+
+      {/* "Run Comparison" button overlay — active when all selected, dimmed after run */}
+      {allSelected && (
+        <>
+          {/* White backing to cover static button */}
+          <div style={{ position: "absolute", left: RUN_LEFT, top: RUN_TOP, width: RUN_W, height: RUN_H, background: "white", zIndex: 14 }} />
+          <div
+            onClick={compareRan ? undefined : onRunComparison}
+            style={{
+              position: "absolute", left: RUN_LEFT, top: RUN_TOP, width: RUN_W, height: RUN_H,
+              background: compareRan ? "#6ea9fb" : "#0e6ff9",
+              borderRadius: 6, zIndex: 15,
+              display: "flex", alignItems: "center", justifyContent: "center",
+              cursor: compareRan ? "default" : "pointer",
+              transition: "background 0.2s",
+            }}
+          >
+            <span style={{ fontFamily: sf, fontSize: 14, color: "white", lineHeight: "16px", whiteSpace: "nowrap" }}>
+              Run Comparison
+            </span>
+          </div>
+        </>
+      )}
+    </>
+  );
+}
+
 // ─── Root ─────────────────────────────────────────────────────────────────────
 export default function App() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -737,6 +889,10 @@ export default function App() {
   const [rightTab, setRightTab] = useState<"custom" | "column">("custom");
   const [view, setView] = useState<"macro" | "micro" | "compare">("macro");
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [compareFile, setCompareFile] = useState("Select File");
+  const [compareLeft, setCompareLeft] = useState("--");
+  const [compareRight, setCompareRight] = useState("--");
+  const [compareRan, setCompareRan] = useState(false);
 
   useEffect(() => {
     const update = () => {
@@ -775,7 +931,20 @@ export default function App() {
             />
           </>
         ) : view === "compare" ? (
-          <CompareVersions />
+          <>
+            {compareRan
+              ? <CompareVersions4 />
+              : (compareFile !== "Select File" && compareLeft !== "--" && compareRight !== "--")
+                ? <CompareVersions2 />
+                : <CompareVersions />
+            }
+            <CompareVersionsOverlay
+              fileVal={compareFile} setFileVal={setCompareFile}
+              leftVal={compareLeft} setLeftVal={setCompareLeft}
+              rightVal={compareRight} setRightVal={setCompareRight}
+              compareRan={compareRan} onRunComparison={() => setCompareRan(true)}
+            />
+          </>
         ) : (
           <>
             <MacroView />
@@ -821,7 +990,7 @@ export default function App() {
               zIndex: 21, overflow: "hidden",
             }}>
               {[
-                { label: "Baseline Agent", dividerAfter: false, action: () => setView("macro") },
+                { label: "Baseline Agent", dividerAfter: false, action: () => { setView("macro"); setCompareRan(false); } },
                 { label: "Version 2 Agent", dividerAfter: true, action: () => {} },
                 { label: "Compare Versions", dividerAfter: false, action: () => setView("compare") },
               ].map(({ label, dividerAfter, action }, i) => (
